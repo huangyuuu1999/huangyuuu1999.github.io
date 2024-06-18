@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Program interesting facts</title>
-        <meta name="robots" content="noindex">
+        <title>返回栈内地址 - Program interesting facts</title>
 
 
         <!-- Custom HTML head -->
@@ -13,21 +12,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
@@ -36,7 +35,7 @@
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -89,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">python</li><li class="chapter-item expanded "><a href="python_/i_scope.html"><strong aria-hidden="true">1.</strong> i作用域</a></li><li class="chapter-item expanded "><a href="python_/for_i_in.html"><strong aria-hidden="true">2.</strong> 改迭代器？</a></li><li class="chapter-item expanded affix "><li class="part-title">golang</li><li class="chapter-item expanded "><a href="golang_/innerfunc.html"><strong aria-hidden="true">3.</strong> 在函数内定义函数</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="golang_/innerfunc2.html"><strong aria-hidden="true">3.1.</strong> 闭包函数</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">c</li><li class="chapter-item expanded "><a href="c_/return_stack_p.html"><strong aria-hidden="true">4.</strong> 返回栈内地址</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">python</li><li class="chapter-item expanded "><a href="../python_/i_scope.html"><strong aria-hidden="true">1.</strong> i作用域</a></li><li class="chapter-item expanded "><a href="../python_/for_i_in.html"><strong aria-hidden="true">2.</strong> 改迭代器？</a></li><li class="chapter-item expanded affix "><li class="part-title">golang</li><li class="chapter-item expanded "><a href="../golang_/innerfunc.html"><strong aria-hidden="true">3.</strong> 在函数内定义函数</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../golang_/innerfunc2.html"><strong aria-hidden="true">3.1.</strong> 闭包函数</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">c</li><li class="chapter-item expanded "><a href="../c_/return_stack_p.html" class="active"><strong aria-hidden="true">4.</strong> 返回栈内地址</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -145,7 +144,7 @@
                     <h1 class="menu-title">Program interesting facts</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
 
@@ -174,81 +173,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <div style="break-before: page; page-break-before: always;"></div><p>python的变量，在使用前不需要先声明，在循环的时候，可以直接使用变量i来承接迭代器给出的值</p>
-<pre><code class="language-python">i = 4
-for i in range(5):
-    print('x')
-print(i) # i = ?
-</code></pre>
-<p>在golang中的表现</p>
-<pre><code class="language-golang">package main
-
-import "fmt"
-
-func main() {
-    x := []int{1, 2, 3, 4}
-    for i := range(x) {
-        fmt.Println("x", i)
-    }
-    // fmt.Printf("i: %v\n", i) // undefined: i
-}
-</code></pre>
-<p>这段代码展示了一个事实：循环内部的i和外部定义的变量i是无关的，这表明go的循环内部变量是有作用域的</p>
-<pre><code class="language-golang">package main
-
-import "fmt"
-
-func main() {
-    i := 20
-    x := []int{1, 2, 3, 4}
-    for i := range(x) {
-        fmt.Println("x", i)
-    }
-    fmt.Printf("i: %v\n", i) // i: 20
-}
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><p>这样修改数组的值，是错误的方式</p>
-<pre><code class="language-python">nums = [2, 4, 5, 7, 9]
-for i in nums:
-    i = 7
-print(nums)
-</code></pre>
-<p><code>i = 7</code>只是让原先指向迭代器抛出对象的变量i，转而指向另一个对象7，而原先的迭代器给出的对象不受影响</p>
-<div style="break-before: page; page-break-before: always;"></div><p>在golang函数的内部，可以定义另外的函数</p>
-<pre><code class="language-go">package main
-
-import "fmt"
-
-func main() {
-	fmt.Println("Outer function")
-	var innerFunction = func() {
-        fmt.Println("Inner function")
-    }
-	innerFunction() // 没有这一句会出错，因为innerFunction定义而不使用
-}
-</code></pre>
-<pre><code class="language-go">package main
-
-import "fmt"
-
-func main() {
-	fmt.Println("Outer function")
-	innerFunction := func() { // 使用 := 也可以
-        fmt.Println("Inner function")
-    }
-	innerFunction()
-}
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><p>golang的闭包函数，可以访问到相同地位的兄弟变量，同一作用域的其他变量</p>
-<pre><code class="language-go">func innerfunc2() {
-	x := 20
-	this_func_can_visit_x := func() {
-		fmt.Println("this_func_can_visit_x", x)
-	}
-	this_func_can_visit_x() // this_func_can_visit_x 20
-}
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><p>返回栈内局部变量的地址是危险的</p>
+                        <p>返回栈内局部变量的地址是危险的</p>
 <pre><code class="language-c">// return_stack_p.c
 #include&lt;stdio.h&gt;
 
@@ -271,6 +196,9 @@ int main() {
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../golang_/innerfunc2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
 
                         <div style="clear: both"></div>
@@ -279,6 +207,9 @@ int main() {
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../golang_/innerfunc2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
             </nav>
 
@@ -292,21 +223,16 @@ int main() {
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
 
-        <script>
-        window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
-        });
-        </script>
 
     </div>
     </body>
