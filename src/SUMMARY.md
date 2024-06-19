@@ -10,5 +10,6 @@
 # golang
 - [在函数内定义函数](./golang_/innerfunc.md)
     - [闭包函数](./golang_/innerfunc2.md)
+    - [闭包递归函数](./golang_/innernested.md)
 # c
 - [返回栈内地址](./c_/return_stack_p.md)

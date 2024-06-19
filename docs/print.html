@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">python</li><li class="chapter-item expanded "><a href="python_/i_scope.html"><strong aria-hidden="true">1.</strong> i作用域</a></li><li class="chapter-item expanded "><a href="python_/for_i_in.html"><strong aria-hidden="true">2.</strong> 改迭代器？</a></li><li class="chapter-item expanded affix "><li class="part-title">golang</li><li class="chapter-item expanded "><a href="golang_/innerfunc.html"><strong aria-hidden="true">3.</strong> 在函数内定义函数</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="golang_/innerfunc2.html"><strong aria-hidden="true">3.1.</strong> 闭包函数</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">c</li><li class="chapter-item expanded "><a href="c_/return_stack_p.html"><strong aria-hidden="true">4.</strong> 返回栈内地址</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">python</li><li class="chapter-item expanded "><a href="python_/i_scope.html"><strong aria-hidden="true">1.</strong> i作用域</a></li><li class="chapter-item expanded "><a href="python_/for_i_in.html"><strong aria-hidden="true">2.</strong> 改迭代器？</a></li><li class="chapter-item expanded affix "><li class="part-title">golang</li><li class="chapter-item expanded "><a href="golang_/innerfunc.html"><strong aria-hidden="true">3.</strong> 在函数内定义函数</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="golang_/innerfunc2.html"><strong aria-hidden="true">3.1.</strong> 闭包函数</a></li><li class="chapter-item expanded "><a href="golang_/innernested.html"><strong aria-hidden="true">3.2.</strong> 闭包递归函数</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">c</li><li class="chapter-item expanded "><a href="c_/return_stack_p.html"><strong aria-hidden="true">4.</strong> 返回栈内地址</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -174,7 +174,9 @@
 
                 <div id="content" class="content">
                     <main>
-                        <div style="break-before: page; page-break-before: always;"></div><p>python的变量，在使用前不需要先声明，在循环的时候，可以直接使用变量i来承接迭代器给出的值</p>
+                        <p>golang 和 python 有许多类似的地方，但也有不一样的设计。</p>
+<p>从一些小案例出发，简单明了地展示这些有趣的事实。</p>
+<div style="break-before: page; page-break-before: always;"></div><p>python的变量，在使用前不需要先声明，在循环的时候，可以直接使用变量i来承接迭代器给出的值</p>
 <pre><code class="language-python">i = 9
 for i in range(5):
     print('x')
@@ -248,6 +250,36 @@ func main() {
 	this_func_can_visit_x() // this_func_can_visit_x 20
 }
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><p>要在一个A函数内部，定义另一个B函数，且要求B是递归函数，观察下面几种写法。</p>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+func main() {
+	// 需要定义一个递归函数
+	// f1 := func(n int) int {
+	// 	if n &lt; 0 {
+	// 		return 1
+	// 	}
+	// 	return n + f1(n-1) // 错误的方式1
+	// }
+	// var f2 = func(n int) int {
+	// 	if n &lt; 0 {
+	// 		return 1
+	// 	}
+	// 	return n + f(n-1) // 错误的方式2
+	// }
+	var f3 func(int) int
+	f3 = func(n int) int {
+		if n &lt; 0 {
+			return 1
+		}
+		return n + f3(n-1) // 错误的方式
+	}
+	fmt.Printf("f3(): %v\n", f3(4))
+}
+</code></pre>
+<p>错误写法1和2，都是由于在函数B内部作用域内，找不到名称f1和f2导致的。</p>
 <div style="break-before: page; page-break-before: always;"></div><p>返回栈内局部变量的地址是危险的</p>
 <pre><code class="language-c">// return_stack_p.c
 #include&lt;stdio.h&gt;
