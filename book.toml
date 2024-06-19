@@ -1,0 +1,9 @@
+[book]
+authors = ["="]
+language = "zh"
+multilingual = false
+src = "src"
+title = "Program interesting facts"
+
+[build]
+build-dir = "./docs"
