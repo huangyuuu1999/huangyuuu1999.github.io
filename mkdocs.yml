@@ -37,13 +37,15 @@ theme:
 
 nav:
   - Home: index.md
-  - 'Python':
+  - 'Python语言':
     - 'scope': 'python/i_scope.md'
     - '改迭代器': 'python/for_i_in.md'
-  - 'Golang':
+  - 'Go语言':
       - 在函数内定义函数: 'golang/innerfunc.md'
       - 闭包函数: 'golang/innerfunc2.md'
       - 闭包递归函数: 'golang/innernested.md'
+  - 'Monkey解释器':
+      - token的定义: 'monkey解释器/token.md'
 
 plugins:
   # [搜索功能]
