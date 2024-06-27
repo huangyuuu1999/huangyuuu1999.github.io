@@ -36,6 +36,14 @@ class Lexer:
         self.next_pos += 1
         return self.cur_ch
     
+    def look_up_world(self):  # 查看一整个连续字符序列，判断类型
+        # 当lexer.ch时字符的时候才会使用这个函数
+        word_start = self.cur_pos
+        while self.cur_ch.isalpha():  # 往后读，直到遇到非字符
+            self.read_char()
+        return self.source[word_start:self.cur_pos]  # 此事cur_pos对应的self.ch已经是非字母，是单词的下一位
+
+
     def next_token(self) -> Token:  # 目前只能识别运算符号+=和 界限符号,;(){}
         ch = self.read_char()
         if ch == 'EOF':
