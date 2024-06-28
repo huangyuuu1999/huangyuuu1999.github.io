@@ -726,12 +726,14 @@
 </span><span id="__span-1-7">    <span class="n">INTEGER</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </span><span id="__span-1-8"><span class="p">]</span>
 </span></code></pre></div></td></tr></table></div>
-<p>这个结果中的每一个成员，都是一个词法单元token，每一个词法单元，都在源代码中有对应。每一个词法单元token都有自己的类型，主要有这几类
-- 关键字 ——— 由一门语言自己规定，不同的语言关键字表不同，例如<code>c语言</code>的<code>include typedef if else while goto</code> 
-- 运算符 加<code>+</code>减<code>-</code>乘<code>*</code>除<code>/</code>，取模<code>%</code>，与<code>&amp;</code>或<code>|</code>非<code>^</code>关系运算，大于等于<code>&gt;=</code>, 有的语言还有三元运算<code>？</code>符号，指针取值符<code>-&gt;</code>，解引用符<code>*</code>等
-- 界限符 <code>{} () [] &lt;&gt;</code> 等, 用于在语句中划分出小的作用域，或者数组根据下标取值等
-- 标识符 变量名<code>x y z abc p_name</code>，函数名<code>func add getEventLoop</code>等
-- 字面量 写一个数字 <code>42, 0, 0xfff, 3.24</code> 或者一个字符串 <code>"man out!"</code></p>
+<p>这个结果中的每一个成员，都是一个词法单元token，每一个词法单元，都在源代码中有对应。每一个词法单元token都有自己的类型，主要有这几类</p>
+<ul>
+<li>关键字 ——— 由一门语言自己规定，不同的语言关键字表不同，例如<code>c语言</code>的<code>include typedef if else while goto</code> </li>
+<li>运算符 加<code>+</code>减<code>-</code>乘<code>*</code>除<code>/</code>，取模<code>%</code>，与<code>&amp;</code>或<code>|</code>非<code>^</code>关系运算，大于等于<code>&gt;=</code>, 有的语言还有三元运算<code>？</code>符号，指针取值符<code>-&gt;</code>，解引用符<code>*</code>等</li>
+<li>界限符 <code>{} () [] &lt;&gt;</code> 等, 用于在语句中划分出小的作用域，或者数组根据下标取值等</li>
+<li>标识符 变量名<code>x y z abc p_name</code>，函数名<code>func add getEventLoop</code>等</li>
+<li>字面量 写一个数字 <code>42, 0, 0xfff, 3.24</code> 或者一个字符串 <code>"man out!"</code></li>
+</ul>
 <p>这些类型的token再加上一些空格换行，注释等，大概就是一门语言中你能写的所有东西。</p>
 
 
