@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../scanner/">
+      
+      
+        <link rel="next" href="../signal/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -16,7 +20,7 @@
     
     
       
-        <title>python语言的特性在这一个nav展示 - Pineapply</title>
+        <title>词法解析器roadmap - Pineapply</title>
       
     
     
@@ -68,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pythonnav" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -104,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              python语言的特性在这一个nav展示
+              词法解析器roadmap
             
           </span>
         </div>
@@ -285,7 +289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../i_scope/" class="md-nav__link">
+      <a href="../../python/i_scope/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -306,7 +310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../for_i_in/" class="md-nav__link">
+      <a href="../../python/for_i_in/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -436,17 +440,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -460,7 +466,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Monkey解释器
@@ -474,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/scanner/" class="md-nav__link">
+      <a href="../scanner/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -492,10 +498,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/task/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    词法解析器roadmap
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -504,6 +530,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -516,7 +571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/signal/" class="md-nav__link">
+      <a href="../signal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -557,6 +612,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -570,7 +642,39 @@
                   
 
 
-<h1 id="pythonnav">python语言的特性在这一个nav展示<a class="headerlink" href="#pythonnav" title="Permanent link">&para;</a></h1>
+<h1 id="_1">词法分析器：一步步实现<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>朴素的想法就是把源代码当做字符串去扫描，正如“扫描器”这个名称暗示的那样。
+这里我打算用一些小小的编程练习来引入，一步一步地添加功能，直到实现一个简陋的词法解析器。</p>
+<h3 id="_2">步骤<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>每个小练习都会让我们的词法解析器多一点功能，如何理解 <strong>“每一步多一点功能”</strong> 呢？还记得上一节我们谈到了token的类型吗？</p>
+<p>在一门语言中，除去注释，无效的空格等内容（因为他们并不是必要的，也不需要变成token），我们能写的内容大致分为以下几类：</p>
+<ul>
+<li>关键字 ——— 由一门语言自己规定，不同的语言关键字表不同，例如<code>c语言</code>的<code>include typedef if else while goto</code> </li>
+<li>运算符 加<code>+</code>减<code>-</code>乘<code>*</code>除<code>/</code>，取模<code>%</code>，与<code>&amp;</code>或<code>|</code>非<code>^</code>关系运算，大于等于<code>&gt;=</code>, 有的语言还有三元运算<code>？</code>符号，指针取值符<code>-&gt;</code>，解引用符<code>*</code>等</li>
+<li>界限符 <code>{} () [] &lt;&gt;</code> 等, 用于在语句中划分出小的作用域，或者数组根据下标取值等</li>
+<li>标识符 变量名<code>x y z abc p_name</code>，函数名<code>func add getEventLoop</code>等</li>
+<li>字面量 写一个数字 <code>42, 0, 0xfff, 3.24</code> 或者一个字符串 <code>"man out!"</code></li>
+</ul>
+<p><strong>“每一步多一点功能”</strong> 就是指，我们可以不断地升级我们得词法解析器代码，让它从 <strong>不能识别</strong> 上面所列类型的任何一种的状态，到能够识别一种、两种甚至全部的状态。</p>
+<p>下面先展示出这些小练习。</p>
+<ol>
+<li>
+<p><strong>让词法解析器能够读取字符</strong> 请写一段代码，每次能够读取字符串中的一个字符并打印出来</p>
+<p>可以直接遍历字符串，但请想一想会不会给后面带来不便？</p>
+</li>
+<li>
+<p><strong>让词法解析器能够识别运算符、界限符</strong> 请写一段代码，如果遇到 <code>=+,;(){}</code> 这些运算符和界限符，就当做token按顺序保存起来，其他的字符直接丢弃</p>
+<p>是不是可以直接使用<code>if</code>判断某个读出的字符是不是<code>=</code>,是不是<code>{</code>？...</p>
+</li>
+<li>
+<p><strong>让词法解析器能够识别关键字和标识符</strong> 完善2，使之能够识别关键字<code>let</code>,和标识符<code>xyz</code>, <code>add</code>, ...</p>
+<p>当发现是字母开头时，要往后读取直到遇到非字母，再判断这个连续的字符序列是标识符还是关键字。</p>
+</li>
+<li>
+<p><strong>让词法解析器能够识别整数字面量</strong> 完善3，使之能够识别整数字面量</p>
+<p>如果字符是数字字符，就继续读取直到遇到非字符，再把这个数字字符串转换成整数。</p>
+</li>
+</ol>
 
 
 
