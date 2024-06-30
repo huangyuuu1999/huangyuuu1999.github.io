@@ -50,6 +50,7 @@ nav:
       - 词法解析器roadmap: 'monkey解释器/task.md'
       - 读取|判断符号: 'monkey解释器/signal.md'
       - 读取关键字|标识符: 'monkey解释器/keyword.md'
+      - 语法解析: 'monkey解释器/ast.md'
 
 plugins:
   # [搜索功能]
