@@ -9,21 +9,25 @@
       
       
       
+        <link rel="prev" href="../for_i_in/">
       
       
-      <link rel="icon" href="/img/favicon.ico">
+        <link rel="next" href="../../golang/innerfunc/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
     
     
       
-        <title>Pineapply</title>
+        <title>defaultdict - Pineapply</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -67,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#defaultdict" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -79,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="/." title="Pineapply" class="md-header__button md-logo" aria-label="Pineapply" data-md-component="logo">
+    <a href="../.." title="Pineapply" class="md-header__button md-logo" aria-label="Pineapply" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -99,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              defaultdict
             
           </span>
         </div>
@@ -207,7 +216,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Pineapply" class="md-nav__button md-logo" aria-label="Pineapply" data-md-component="logo">
+    <a href="../.." title="Pineapply" class="md-nav__button md-logo" aria-label="Pineapply" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -225,7 +234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -242,17 +251,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -266,7 +277,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Python语言
@@ -280,7 +291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/python/i_scope/" class="md-nav__link">
+      <a href="../i_scope/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -301,7 +312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/python/for_i_in/" class="md-nav__link">
+      <a href="../for_i_in/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -319,10 +330,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/python/defaultdict_use/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    defaultdict
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -331,6 +360,87 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#defaultdict" class="md-nav__link">
+    <span class="md-ellipsis">
+      导入 defaultdict
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defaultdict_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      创建 defaultdict
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defaultdict_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 defaultdict
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用的默认工厂函数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例：使用 set 作为默认工厂函数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defaultdict_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么使用 defaultdict？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意事项
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -385,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/golang/innerfunc/" class="md-nav__link">
+      <a href="../../golang/innerfunc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -406,7 +516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/golang/innerfunc2/" class="md-nav__link">
+      <a href="../../golang/innerfunc2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -427,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/golang/innernested/" class="md-nav__link">
+      <a href="../../golang/innernested/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -448,7 +558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/golang/slice_q/" class="md-nav__link">
+      <a href="../../golang/slice_q/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -469,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/golang/map_q/" class="md-nav__link">
+      <a href="../../golang/map_q/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -532,7 +642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/monkey%E8%A7%A3%E9%87%8A%E5%99%A8/scanner/" class="md-nav__link">
+      <a href="../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/scanner/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -553,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/monkey%E8%A7%A3%E9%87%8A%E5%99%A8/task/" class="md-nav__link">
+      <a href="../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/task/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -574,7 +684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/monkey%E8%A7%A3%E9%87%8A%E5%99%A8/signal/" class="md-nav__link">
+      <a href="../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/signal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -595,7 +705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/monkey%E8%A7%A3%E9%87%8A%E5%99%A8/keyword/" class="md-nav__link">
+      <a href="../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/keyword/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -616,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/monkey%E8%A7%A3%E9%87%8A%E5%99%A8/ast/" class="md-nav__link">
+      <a href="../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/ast/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -655,6 +765,77 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#defaultdict" class="md-nav__link">
+    <span class="md-ellipsis">
+      导入 defaultdict
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defaultdict_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      创建 defaultdict
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defaultdict_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 defaultdict
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用的默认工厂函数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例：使用 set 作为默认工厂函数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defaultdict_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么使用 defaultdict？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意事项
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -665,8 +846,100 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  <h1>defaultdict</h1>
+
+<p>Python 的 <code>defaultdict</code> 是 <code>collections</code> 模块中的一个非常有用的数据结构，它是字典（<code>dict</code>）的一个子类。<code>defaultdict</code> 的特殊之处在于，当你尝试访问一个不存在的键时，它不会抛出 <code>KeyError</code>，而是会使用一个默认值，这个默认值由你提供的一个工厂函数生成。</p>
+<p>以下是 <code>defaultdict</code> 的基本用法：</p>
+<h3 id="defaultdict">导入 <code>defaultdict</code><a class="headerlink" href="#defaultdict" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="defaultdict_1">创建 <code>defaultdict</code><a class="headerlink" href="#defaultdict_1" title="Permanent link">&para;</a></h3>
+<p>创建 <code>defaultdict</code> 时，你需要提供一个工厂函数，这个函数会在字典中需要一个不存在的键时被调用。</p>
+<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><span class="c1"># 使用 list 作为默认工厂函数</span>
+</span><span id="__span-1-2"><span class="n">dd</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="defaultdict_2">使用 <code>defaultdict</code><a class="headerlink" href="#defaultdict_2" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><span class="c1"># 添加元素</span>
+</span><span id="__span-2-2"><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 因为 &#39;key1&#39; 不存在，所以首先会创建 &#39;key1&#39; 并用 [] 作为默认值</span>
+</span><span id="__span-2-3"><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-2-4">
+</span><span id="__span-2-5"><span class="c1"># 访问元素</span>
+</span><span id="__span-2-6"><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">])</span>  <span class="c1"># 输出: [1, 2]</span>
+</span><span id="__span-2-7">
+</span><span id="__span-2-8"><span class="c1"># 尝试访问不存在的键</span>
+</span><span id="__span-2-9"><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key2&#39;</span><span class="p">])</span>  <span class="c1"># 输出: []，因为 &#39;key2&#39; 不存在，所以使用默认的 [] 作为值</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="_1">常用的默认工厂函数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>list</code>: 当你想要一个列表作为默认值时。</li>
+<li><code>set</code>: 当你想要一个集合作为默认值时。</li>
+<li><code>int</code>: 当你想要一个整数作为默认值时，通常设置为 <code>int()</code>，它返回0。</li>
+<li><code>str</code>: 当你想要一个字符串作为默认值时，通常设置为 <code>str()</code>，它返回空字符串<code>''</code>。</li>
+<li><code>dict</code>: 当你想要一个字典作为默认值时。</li>
+</ul>
+<h3 id="set">示例：使用 <code>set</code> 作为默认工厂函数<a class="headerlink" href="#set" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+</span><span id="__span-3-2">
+</span><span id="__span-3-3"><span class="c1"># 使用 set 作为默认工厂函数</span>
+</span><span id="__span-3-4"><span class="n">dd</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span>
+</span><span id="__span-3-5">
+</span><span id="__span-3-6"><span class="c1"># 添加元素</span>
+</span><span id="__span-3-7"><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;value1&#39;</span><span class="p">)</span>
+</span><span id="__span-3-8"><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;value2&#39;</span><span class="p">)</span>
+</span><span id="__span-3-9">
+</span><span id="__span-3-10"><span class="c1"># 访问元素</span>
+</span><span id="__span-3-11"><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">])</span>  <span class="c1"># 输出: {&#39;value1&#39;}</span>
+</span><span id="__span-3-12"><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key2&#39;</span><span class="p">])</span>  <span class="c1"># 输出: {&#39;value2&#39;}</span>
+</span><span id="__span-3-13">
+</span><span id="__span-3-14"><span class="c1"># 尝试访问不存在的键</span>
+</span><span id="__span-3-15"><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key3&#39;</span><span class="p">])</span>  <span class="c1"># 输出: set()，因为 &#39;key3&#39; 不存在，所以使用默认的 set() 作为值</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="defaultdict_3">为什么使用 <code>defaultdict</code>？<a class="headerlink" href="#defaultdict_3" title="Permanent link">&para;</a></h3>
+<p>使用 <code>defaultdict</code> 可以避免在访问字典时出现 <code>KeyError</code>，并且可以简化代码，特别是在你需要初始化字典中的每个键为特定类型的值时。</p>
+<h3 id="_2">注意事项<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>defaultdict</code> 的默认值是通过工厂函数生成的，每次访问不存在的键时都会调用这个函数，所以如果这个函数有副作用，它可能会影响你的程序。</li>
+<li>使用 <code>defaultdict</code> 时，要确保提供的工厂函数在每次调用时都能生成相同的初始值。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -706,10 +979,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["header.autohide", "navigation.tracking", "navigation.top", "search.highlight", "search.share", "search.suggest", "content.code.annotate"], "search": "/assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.tracking", "navigation.top", "search.highlight", "search.share", "search.suggest", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.ad660dcc.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
     
   </body>

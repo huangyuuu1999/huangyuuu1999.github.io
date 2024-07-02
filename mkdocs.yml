@@ -38,19 +38,21 @@ theme:
 nav:
   - Home: index.md
   - 'Python语言':
-    - 'scope': 'python/i_scope.md'
-    - '改迭代器': 'python/for_i_in.md'
+    - scope: 'python/i_scope.md'
+    - 改迭代器: 'python/for_i_in.md'
+    - defaultdict: 'python/defaultdict_use.md'
   - 'Go语言':
-      - 在函数内定义函数: 'golang/innerfunc.md'
-      - 闭包函数: 'golang/innerfunc2.md'
-      - 闭包递归函数: 'golang/innernested.md'
-      - 切片: 'golang/slice_q.md'
+    - 在函数内定义函数: 'golang/innerfunc.md'
+    - 闭包函数: 'golang/innerfunc2.md'
+    - 闭包递归函数: 'golang/innernested.md'
+    - 切片: 'golang/slice_q.md'
+    - map取不存在的键: 'golang/map_q.md'
   - 'Monkey解释器':
-      - 词法解析目标: 'monkey解释器/scanner.md'
-      - 词法解析器roadmap: 'monkey解释器/task.md'
-      - 读取|判断符号: 'monkey解释器/signal.md'
-      - 读取关键字|标识符: 'monkey解释器/keyword.md'
-      - 语法解析: 'monkey解释器/ast.md'
+    - 词法解析目标: 'monkey解释器/scanner.md'
+    - 词法解析器roadmap: 'monkey解释器/task.md'
+    - 读取|判断符号: 'monkey解释器/signal.md'
+    - 读取关键字|标识符: 'monkey解释器/keyword.md'
+    - 语法解析: 'monkey解释器/ast.md'
 
 plugins:
   # [搜索功能]
