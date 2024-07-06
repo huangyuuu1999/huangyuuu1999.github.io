@@ -53,6 +53,8 @@ nav:
     - 读取|判断符号: 'monkey解释器/signal.md'
     - 读取关键字|标识符: 'monkey解释器/keyword.md'
     - 语法解析: 'monkey解释器/ast.md'
+  - '数据结构算法':
+    - 拓扑排序: '数据结构算法/topo.md'
 
 plugins:
   # [搜索功能]
