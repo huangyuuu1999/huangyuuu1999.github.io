@@ -55,6 +55,7 @@ nav:
     - 语法解析: 'monkey解释器/ast.md'
   - '数据结构算法':
     - 拓扑排序: '数据结构算法/topo.md'
+    - 前缀、差分: '数据结构算法/prefix_diff.md'
 
 plugins:
   # [搜索功能]
