@@ -47,6 +47,7 @@ nav:
     - 闭包递归函数: 'golang/innernested.md'
     - 切片: 'golang/slice_q.md'
     - map取不存在的键: 'golang/map_q.md'
+    - nil究竟是什么: 'golang/nil.md'
   - 'Monkey解释器':
     - 词法解析目标: 'monkey解释器/scanner.md'
     - 词法解析器roadmap: 'monkey解释器/task.md'

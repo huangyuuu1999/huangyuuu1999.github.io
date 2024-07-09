@@ -47,6 +47,7 @@ int DataAsAddress(IntSlice s) {
 }
 
 void test(IntSlice);
+void test_nil();
 
 #define SLICE_INFO(s) \
 PrintSlice(s);\
@@ -77,6 +78,9 @@ int main() {
     test(s);
 
     SLICE_INFO(s)
+
+    // 7.9 difference of nil and NULL
+    test_nil();
     return 0;
 }
 
@@ -85,4 +89,9 @@ void test(IntSlice s) {
     IntSlice s1 = append(s, 999); // s1 is a new struct obj
     SLICE_INFO(s1);
     printf("------ end test ------\n");
+}
+
+void test_nil() {
+    IntSlice foo; // 只是声明，没有分配内存
+    printf("foo len %d \n", Len(foo));
 }
