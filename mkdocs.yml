@@ -46,6 +46,7 @@ nav:
     - 闭包函数: 'golang/innerfunc2.md'
     - 闭包递归函数: 'golang/innernested.md'
     - 切片: 'golang/slice_q.md'
+    - 切片[:]: 'golang/slice_slice.md'
     - map取不存在的键: 'golang/map_q.md'
     - nil究竟是什么: 'golang/nil.md'
   - 'Monkey解释器':
@@ -57,6 +58,7 @@ nav:
   - '数据结构算法':
     - 拓扑排序: '数据结构算法/topo.md'
     - 前缀、差分: '数据结构算法/prefix_diff.md'
+    - 字典树: '数据结构算法/trie.md'
 
 plugins:
   # [搜索功能]
