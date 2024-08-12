@@ -684,6 +684,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -948,6 +957,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -971,7 +989,7 @@
 词法分析器（lexer）也叫词法单元生成器（tokenizer）或者扫描器（scanner）。</p>
 <h3 id="_3">词法分析器的功能<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>词法分析器是一些代码，它们能够实现这样的功能：把用户写的源代码，转换成一堆词法单元（token）。就像是你在翻译文言文的时候，首先需要把一句话拆分成为许多不可再分的单元。</p>
-<p>举个例子：你要翻译“庭有枇杷树”，首先就要把这句话拆分为 <code>["庭","有","枇杷","树"]</code> 或者 <code>["庭","有","枇杷树"]</code>，你要做的事情就是拆分，得到一个单词（有的单词就是一个字）序列，而<strong>不必关心</strong>这句话表达什么意思，是不是符合古汉语的语法。</p>
+<p>举个例子：你要翻译“庭有枇杷树”，首先就要把这句话拆分为 <code>["庭","有","枇杷","树"]</code> 或者 <code>["庭","有","枇杷树"]</code>，你要做的事情就是拆分，得到一个单词（有的单词就是一个字）序列，而<strong>不必关心</strong>这句话表达什么意思，是不是符合古汉语的语法（这是后面的语法分析和语义分析要做的事情）。</p>
 <h3 id="_4">词法解析小案例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>对于一门像样的编程语言写的代码，例如下面的这一句：
 <div class="language-js highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -982,7 +1000,7 @@
 </span></code></pre></div></td></tr></table></div>
 这门语言的词法解析器应该能辨认出：
 最开始有一个关键字let，然后是一个变量的名字x，后面是赋值符号=，加法符号+，还有两个数字5。
-词法解析器应该按顺序给我们这样的结果</p>
+词法解析器应该按顺序给我们这样的结果（token序列）</p>
 <div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -996,7 +1014,7 @@
 </span><span id="__span-1-4">    <span class="n">EQUAL_SIGN</span><span class="p">,</span> <span class="c1"># 符号 + - * / % &amp; &gt; &lt; &lt;= || ? 等</span>
 </span><span id="__span-1-5">    <span class="n">INTEGER</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="c1"># 数字字面量 </span>
 </span><span id="__span-1-6">    <span class="n">PLUS_SIGN</span><span class="p">,</span> 
-</span><span id="__span-1-7">    <span class="n">INTEGER</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-1-7">    <span class="n">INTEGER</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
 </span><span id="__span-1-8"><span class="p">]</span>
 </span></code></pre></div></td></tr></table></div>
 <p>这个结果中的每一个成员，都是一个词法单元token，每一个词法单元，都在源代码中有对应。每一个词法单元token都有自己的类型，主要有这几类</p>
@@ -1008,6 +1026,9 @@
 <li>字面量 写一个数字 <code>42, 0, 0xfff, 3.24</code> 或者一个字符串 <code>"man out!"</code></li>
 </ul>
 <p>这些类型的token再加上一些空格换行，注释等，大概就是一门语言中你能写的所有东西。</p>
+<h2 id="_5">总结<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>词法解析器的功能和目标：将符合某一门语言规则的文本源代码，转换成token序列。</p>
+<p>token序列的种类：关键字、标识符、界限符、运算符、字面量。</p>
 
 
 

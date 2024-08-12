@@ -964,6 +964,7 @@
 
 
 <h1 id="_1">读取关键字和标识符<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>关键字是有限的，而标识符是无限的。</p>
 <h2 id="_2">关键字和标识符<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>关键字是编程语言保留的，数量有限的一系列单词。可以穷举，因此识别关键字可以使用和上一节一样的枚举判断的方式。
 标识符是用户在编程的时候根据自己的需要临时起的名称，例如变量名，函数名等等，标识符是不可枚举的，因此不能用上面的办法逐一判断。</p>
@@ -971,6 +972,7 @@
 而标识符不一样，<code>abc</code>,<code>f1</code>,<code>add_two</code>,<code>findKthLargest</code>都是标识符，标识符是多词一码的，也就是说，前面的这几个单词，都是标识符这个类型，只是属性值不一样。</p>
 <p>token 可以表示为 &lt;种别码, 属性值&gt;, 如果种别码可以唯一确定token，那么属性值就可以不用填，如果很多个token的种别码都一样，那就需要唯一的属性值来区分。</p>
 <h3 id="_3">识别关键字<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>识别关键字就是枚举对比的过程。</p>
 <h3 id="_4">识别标识符<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>通过前面的练习，界限符、运算符、关键字都已经能识别了，现在来识别标识符吧！
 标识符的格式是有规定的，在很多预言中，标识符只能是：大小写字母、数字、下划线的组合，且不能是数字开头。
