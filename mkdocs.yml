@@ -50,6 +50,8 @@ nav:
     - 切片[:]: 'golang/slice_slice.md'
     - map取不存在的键: 'golang/map_q.md'
     - nil究竟是什么: 'golang/nil.md'
+    - 协程: 'golang/go_routine.md'
+    - 资源竞争和锁: 'golang/go_lock.md'
   - 'Monkey解释器':
     - 词法解析目标: 'monkey解释器/scanner.md'
     - 词法解析器roadmap: 'monkey解释器/task.md'

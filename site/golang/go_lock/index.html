@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../for_i_in/">
+        <link rel="prev" href="../go_routine/">
       
       
-        <link rel="next" href="../func/">
+        <link rel="next" href="../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/scanner/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -20,7 +20,7 @@
     
     
       
-        <title>defaultdict - Pineapply</title>
+        <title>资源竞争和锁 - Pineapply</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#defaultdict" class="md-skip">
+        <a href="#gomutex" class="md-skip">
           跳转至
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              defaultdict
+              资源竞争和锁
             
           </span>
         </div>
@@ -251,19 +251,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -277,7 +275,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Python语言
@@ -291,7 +289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../i_scope/" class="md-nav__link">
+      <a href="../../python/i_scope/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -312,11 +310,265 @@
   
   
     <li class="md-nav__item">
-      <a href="../for_i_in/" class="md-nav__link">
+      <a href="../../python/for_i_in/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     改迭代器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/defaultdict_use/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    defaultdict
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/func/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    在函数里该参数的指向
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Go语言
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Go语言
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../innerfunc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    在函数内定义函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../innerfunc2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    闭包函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../innernested/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    闭包递归函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slice_q/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    切片
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slice_slice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    切片[:]
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../map_q/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    map取不存在的键
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nil/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    nil究竟是什么
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../go_routine/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    协程
   </span>
   
 
@@ -344,7 +596,7 @@
           
   
   <span class="md-ellipsis">
-    defaultdict
+    资源竞争和锁
   </span>
   
 
@@ -355,7 +607,7 @@
         
   
   <span class="md-ellipsis">
-    defaultdict
+    资源竞争和锁
   </span>
   
 
@@ -375,65 +627,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#defaultdict" class="md-nav__link">
+  <a href="#gomutex" class="md-nav__link">
     <span class="md-ellipsis">
-      导入 defaultdict
+      Go的Mutex
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#defaultdict_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      创建 defaultdict
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#defaultdict_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      使用 defaultdict
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Go的Mutex">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      常用的默认工厂函数
+      锁的必要性
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#set" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例：使用 set 作为默认工厂函数
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#defaultdict_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      为什么使用 defaultdict？
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      注意事项
+      不可重入锁/非递归锁
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      读写锁
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -441,258 +672,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../func/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    在函数里该参数的指向
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Go语言
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Go语言
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../golang/innerfunc/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    在函数内定义函数
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../golang/innerfunc2/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    闭包函数
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../golang/innernested/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    闭包递归函数
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../golang/slice_q/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    切片
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../golang/slice_slice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    切片[:]
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../golang/map_q/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    map取不存在的键
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../golang/nil/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    nil究竟是什么
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../golang/go_routine/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    协程
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../golang/go_lock/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    资源竞争和锁
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -982,65 +961,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#defaultdict" class="md-nav__link">
+  <a href="#gomutex" class="md-nav__link">
     <span class="md-ellipsis">
-      导入 defaultdict
+      Go的Mutex
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#defaultdict_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      创建 defaultdict
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#defaultdict_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      使用 defaultdict
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Go的Mutex">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      常用的默认工厂函数
+      锁的必要性
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#set" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例：使用 set 作为默认工厂函数
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#defaultdict_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      为什么使用 defaultdict？
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      注意事项
+      不可重入锁/非递归锁
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      读写锁
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1059,48 +1017,12 @@
                   
 
 
-  <h1>defaultdict</h1>
+  <h1>资源竞争和锁</h1>
 
-<p>Python 的 <code>defaultdict</code> 是 <code>collections</code> 模块中的一个非常有用的数据结构，它是字典（<code>dict</code>）的一个子类。<code>defaultdict</code> 的特殊之处在于，当你尝试访问一个不存在的键时，它不会抛出 <code>KeyError</code>，而是会使用一个默认值，这个默认值由你提供的一个工厂函数生成。</p>
-<p>以下是 <code>defaultdict</code> 的基本用法：</p>
-<h3 id="defaultdict">导入 <code>defaultdict</code><a class="headerlink" href="#defaultdict" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
-</span></code></pre></div></td></tr></table></div>
-<h3 id="defaultdict_1">创建 <code>defaultdict</code><a class="headerlink" href="#defaultdict_1" title="Permanent link">&para;</a></h3>
-<p>创建 <code>defaultdict</code> 时，你需要提供一个工厂函数，这个函数会在字典中需要一个不存在的键时被调用。</p>
-<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><span class="c1"># 使用 list 作为默认工厂函数</span>
-</span><span id="__span-1-2"><span class="n">dd</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-</span></code></pre></div></td></tr></table></div>
-<h3 id="defaultdict_2">使用 <code>defaultdict</code><a class="headerlink" href="#defaultdict_2" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><span class="c1"># 添加元素</span>
-</span><span id="__span-2-2"><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 因为 &#39;key1&#39; 不存在，所以首先会创建 &#39;key1&#39; 并用 [] 作为默认值</span>
-</span><span id="__span-2-3"><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</span><span id="__span-2-4">
-</span><span id="__span-2-5"><span class="c1"># 访问元素</span>
-</span><span id="__span-2-6"><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">])</span>  <span class="c1"># 输出: [1, 2]</span>
-</span><span id="__span-2-7">
-</span><span id="__span-2-8"><span class="c1"># 尝试访问不存在的键</span>
-</span><span id="__span-2-9"><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key2&#39;</span><span class="p">])</span>  <span class="c1"># 输出: []，因为 &#39;key2&#39; 不存在，所以使用默认的 [] 作为值</span>
-</span></code></pre></div></td></tr></table></div>
-<h3 id="_1">常用的默认工厂函数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>list</code>: 当你想要一个列表作为默认值时。</li>
-<li><code>set</code>: 当你想要一个集合作为默认值时。</li>
-<li><code>int</code>: 当你想要一个整数作为默认值时，通常设置为 <code>int()</code>，它返回0。</li>
-<li><code>str</code>: 当你想要一个字符串作为默认值时，通常设置为 <code>str()</code>，它返回空字符串<code>''</code>。</li>
-<li><code>dict</code>: 当你想要一个字典作为默认值时。</li>
-</ul>
-<h3 id="set">示例：使用 <code>set</code> 作为默认工厂函数<a class="headerlink" href="#set" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<h2 id="gomutex">Go的Mutex<a class="headerlink" href="#gomutex" title="Permanent link">&para;</a></h2>
+<h3 id="_1">锁的必要性<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>race-condition案例，多个协程读取到相同的count，先后写入相同的新值，导致结果大概率小于理想结果10。
+<div class="language-go highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -1114,29 +1036,99 @@
 <span class="normal">12</span>
 <span class="normal">13</span>
 <span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
-</span><span id="__span-3-2">
-</span><span id="__span-3-3"><span class="c1"># 使用 set 作为默认工厂函数</span>
-</span><span id="__span-3-4"><span class="n">dd</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span>
-</span><span id="__span-3-5">
-</span><span id="__span-3-6"><span class="c1"># 添加元素</span>
-</span><span id="__span-3-7"><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;value1&#39;</span><span class="p">)</span>
-</span><span id="__span-3-8"><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;value2&#39;</span><span class="p">)</span>
-</span><span id="__span-3-9">
-</span><span id="__span-3-10"><span class="c1"># 访问元素</span>
-</span><span id="__span-3-11"><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">])</span>  <span class="c1"># 输出: {&#39;value1&#39;}</span>
-</span><span id="__span-3-12"><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key2&#39;</span><span class="p">])</span>  <span class="c1"># 输出: {&#39;value2&#39;}</span>
-</span><span id="__span-3-13">
-</span><span id="__span-3-14"><span class="c1"># 尝试访问不存在的键</span>
-</span><span id="__span-3-15"><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;key3&#39;</span><span class="p">])</span>  <span class="c1"># 输出: set()，因为 &#39;key3&#39; 不存在，所以使用默认的 set() 作为值</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+</span><span id="__span-0-2">
+</span><span id="__span-0-3"><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-4"><span class="w">    </span><span class="s">&quot;fmt&quot;</span>
+</span><span id="__span-0-5"><span class="w">    </span><span class="s">&quot;sync&quot;</span>
+</span><span id="__span-0-6"><span class="p">)</span>
+</span><span id="__span-0-7">
+</span><span id="__span-0-8"><span class="kd">var</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="kt">uint32</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-0-9">
+</span><span id="__span-0-10"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-11"><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">wait</span><span class="w"> </span><span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
+</span><span id="__span-0-12"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-13"><span class="w">        </span><span class="k">go</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">count</span><span class="w"> </span><span class="o">*</span><span class="kt">uint32</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-14"><span class="w">            </span><span class="k">defer</span><span class="w"> </span><span class="nx">wait</span><span class="p">.</span><span class="nx">Done</span><span class="p">()</span>
+</span><span id="__span-0-15"><span class="w">            </span><span class="nx">wait</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-0-16"><span class="w">            </span><span class="nx">tmp</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">*</span><span class="nx">count</span>
+</span><span id="__span-0-17"><span class="w">            </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;before task%v count: %v  ==&gt; &quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">tmp</span><span class="p">)</span>
+</span><span id="__span-0-18"><span class="w">            </span><span class="o">*</span><span class="nx">count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">tmp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-0-19"><span class="w">            </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;after  task%v count: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">count</span><span class="p">)</span>
+</span><span id="__span-0-20"><span class="w">        </span><span class="p">}(</span><span class="o">&amp;</span><span class="nx">count</span><span class="p">)</span>
+</span><span id="__span-0-21"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-22"><span class="w">    </span><span class="nx">wait</span><span class="p">.</span><span class="nx">Wait</span><span class="p">()</span>
+</span><span id="__span-0-23"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;finally count: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">count</span><span class="p">)</span>
+</span><span id="__span-0-24"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
-<h3 id="defaultdict_3">为什么使用 <code>defaultdict</code>？<a class="headerlink" href="#defaultdict_3" title="Permanent link">&para;</a></h3>
-<p>使用 <code>defaultdict</code> 可以避免在访问字典时出现 <code>KeyError</code>，并且可以简化代码，特别是在你需要初始化字典中的每个键为特定类型的值时。</p>
-<h3 id="_2">注意事项<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>defaultdict</code> 的默认值是通过工厂函数生成的，每次访问不存在的键时都会调用这个函数，所以如果这个函数有副作用，它可能会影响你的程序。</li>
-<li>使用 <code>defaultdict</code> 时，要确保提供的工厂函数在每次调用时都能生成相同的初始值。</li>
-</ul>
+使用默认的锁保护数据access代码
+<div class="language-go highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+</span><span id="__span-1-2">
+</span><span id="__span-1-3"><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-1-4"><span class="w">    </span><span class="s">&quot;fmt&quot;</span>
+</span><span id="__span-1-5"><span class="w">    </span><span class="s">&quot;sync&quot;</span>
+</span><span id="__span-1-6"><span class="p">)</span>
+</span><span id="__span-1-7">
+</span><span id="__span-1-8"><span class="kd">var</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="kt">uint32</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-1-9"><span class="kd">var</span><span class="w"> </span><span class="nx">lock</span><span class="w"> </span><span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span><span class="w"> </span><span class="c1">// 实现了 sync.Locker 接口的结构体</span>
+</span><span id="__span-1-10">
+</span><span id="__span-1-11"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-12"><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">wait</span><span class="w"> </span><span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
+</span><span id="__span-1-13"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-14"><span class="w">        </span><span class="k">go</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">count</span><span class="w"> </span><span class="o">*</span><span class="kt">uint32</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-15"><span class="w">            </span><span class="k">defer</span><span class="w"> </span><span class="nx">wait</span><span class="p">.</span><span class="nx">Done</span><span class="p">()</span>
+</span><span id="__span-1-16"><span class="w">            </span><span class="nx">wait</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-1-17">
+</span><span id="__span-1-18"><span class="w">            </span><span class="nx">lock</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+</span><span id="__span-1-19"><span class="w">            </span><span class="nx">tmp</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">*</span><span class="nx">count</span>
+</span><span id="__span-1-20"><span class="w">            </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;before task%v count: %v  ==&gt; &quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">tmp</span><span class="p">)</span>
+</span><span id="__span-1-21"><span class="w">            </span><span class="o">*</span><span class="nx">count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">tmp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-1-22"><span class="w">            </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;after  task%v count: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">count</span><span class="p">)</span>
+</span><span id="__span-1-23"><span class="w">            </span><span class="nx">lock</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+</span><span id="__span-1-24"><span class="w">        </span><span class="p">}(</span><span class="o">&amp;</span><span class="nx">count</span><span class="p">)</span>
+</span><span id="__span-1-25"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-26"><span class="w">    </span><span class="nx">wait</span><span class="p">.</span><span class="nx">Wait</span><span class="p">()</span>
+</span><span id="__span-1-27"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;finally count: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">count</span><span class="p">)</span>
+</span><span id="__span-1-28"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div></p>
+<h3 id="_2">不可重入锁/非递归锁<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_3">读写锁<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 
 
 
