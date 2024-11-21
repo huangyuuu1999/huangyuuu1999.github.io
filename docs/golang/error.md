@@ -1,5 +1,5 @@
-错误处理
-
+# 错误处理
+## error是什么
 error就是一个定义好的接口
 ```go
 type error interface {
@@ -109,3 +109,38 @@ func main() {
 }
 
 ```
+## error怎么创建？
+### 使用errors包的New方法创建错误
+```go
+err := errors.New("这是一个错误")
+```
+### 使用fmt包下的Errorf函数
+```go
+err := fmt.Errorf("这是%d格式化参数的错误", 1)
+```
+error是一个接口类型，实现了Error方法的都符合error接口
+errorString 这个结构体，就是一个符合error借口的结构体，并且是errors包自带的。当使用errors.New的时候，返回的还是errorString
+
+## error的传递
+在一些情况下，调用者调用的函数返回了一个错误，但是调用者本身不负责处理错误，于是也将错误作为返回值返回，抛给上一层调用者，这个过程叫传递，错误在传递的过程中可能会层层包装，当上层调用者想要判断错误的类型来做出不同的处理时，可能会无法判别错误的类别或者误判。
+链式错误就是为了解决这种情况。
+
+在error包里面，存在一个wrapError 结构体，这个结构体实现了Error方法，所以也是一个error接口类型；但是他多了一个unWrap方法。
+
+```go
+// fmt包中定义的 wrapError
+type wrapError struct {
+   msg string
+   err error
+}
+
+func (e *wrapError) Error() string {
+   return e.msg
+}
+
+func (e *wrapError) Unwrap() error {
+   return e.err
+}
+
+```
+wrapError结构体的err字段，就是一个一般的error接口值
