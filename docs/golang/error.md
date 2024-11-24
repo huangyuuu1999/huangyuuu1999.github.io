@@ -143,4 +143,4 @@ func (e *wrapError) Unwrap() error {
 }
 
 ```
-wrapError结构体的err字段，就是一个一般的error接口值
+wrapError结构体的err字段，就是一个一般的error接口值。
