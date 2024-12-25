@@ -53,6 +53,7 @@ nav:
     - 协程: 'golang/go_routine.md'
     - 资源竞争和锁: 'golang/go_lock.md'
     - 错误处理: 'golang/error.md'
+    - 排序函数: 'golang/sort.md'
   - 'Monkey解释器':
     - 词法解析目标: 'monkey解释器/scanner.md'
     - 词法解析器roadmap: 'monkey解释器/task.md'

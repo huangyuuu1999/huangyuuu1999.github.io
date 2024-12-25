@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../innerfunc/">
+        <link rel="prev" href="../error/">
       
       
-        <link rel="next" href="../innernested/">
+        <link rel="next" href="../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/scanner/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -20,7 +20,7 @@
     
     
       
-        <title>闭包函数 - Pineapply</title>
+        <title>排序函数 - Pineapply</title>
       
     
     
@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#api" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -103,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              闭包函数
+              排序函数
             
           </span>
         </div>
@@ -430,17 +435,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../innerfunc2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -449,7 +447,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -627,10 +624,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../sort/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    排序函数
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -639,6 +656,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      内置数据结构
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="内置数据结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      对各类切片排序
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      自定义排序
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -920,6 +990,49 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      内置数据结构
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="内置数据结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      对各类切片排序
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      自定义排序
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -934,23 +1047,61 @@
                   
 
 
-  <h1>闭包函数</h1>
-
-<p>golang的闭包函数，可以访问到相同地位的兄弟变量，同一作用域的其他变量</p>
-<div class="language-go highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="kd">func</span><span class="w"> </span><span class="nx">innerfunc2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">20</span>
-</span><span id="__span-0-3"><span class="w">    </span><span class="nx">this_func_can_visit_x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-4"><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;this_func_can_visit_x&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="p">)</span>
-</span><span id="__span-0-5"><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-6"><span class="w">    </span><span class="nx">this_func_can_visit_x</span><span class="p">()</span><span class="w"> </span><span class="c1">// this_func_can_visit_x 20</span>
-</span><span id="__span-0-7"><span class="p">}</span>
+<h1 id="api">排序API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h1>
+<h2 id="_1">内置数据结构<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">对各类切片排序<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>这里只是演示了整数切片和字符串切片的排序，使用<code>sort.Ints</code>和<code>sort.Strings</code>两个函数。</p>
+<div class="language-go highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+</span><span id="__span-0-2">
+</span><span id="__span-0-3"><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-4"><span class="w">    </span><span class="s">&quot;fmt&quot;</span>
+</span><span id="__span-0-5"><span class="w">    </span><span class="s">&quot;sort&quot;</span>
+</span><span id="__span-0-6"><span class="p">)</span>
+</span><span id="__span-0-7">
+</span><span id="__span-0-8"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-9"><span class="w">    </span><span class="nx">strs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b1&quot;</span><span class="p">}</span>
+</span><span id="__span-0-10"><span class="w">    </span><span class="nx">sort</span><span class="p">.</span><span class="nx">Strings</span><span class="p">(</span><span class="nx">strs</span><span class="p">)</span>
+</span><span id="__span-0-11"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;strs: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">strs</span><span class="p">)</span>
+</span><span id="__span-0-12">
+</span><span id="__span-0-13"><span class="w">    </span><span class="nx">ints</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span>
+</span><span id="__span-0-14"><span class="w">    </span><span class="nx">sort</span><span class="p">.</span><span class="nx">Ints</span><span class="p">(</span><span class="nx">ints</span><span class="p">)</span>
+</span><span id="__span-0-15"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;ints: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">ints</span><span class="p">)</span>
+</span><span id="__span-0-16">
+</span><span id="__span-0-17"><span class="w">    </span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">sort</span><span class="p">.</span><span class="nx">IntsAreSorted</span><span class="p">(</span><span class="nx">ints</span><span class="p">)</span>
+</span><span id="__span-0-18"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;Is ints slice sorted?: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">s</span><span class="p">)</span>
+</span><span id="__span-0-19">
+</span><span id="__span-0-20"><span class="w">    </span><span class="nx">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">sort</span><span class="p">.</span><span class="nx">StringsAreSorted</span><span class="p">(</span><span class="nx">strs</span><span class="p">)</span>
+</span><span id="__span-0-21"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;Is ints slice sorted?: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">s</span><span class="p">)</span>
+</span><span id="__span-0-22"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
+<h2 id="_3">自定义排序<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>默认的排序方法是升序的（n increasing order）。</p>
+<p>有时候我们可能需要按照别的方式来排序</p>
+<ol>
+<li>整数切片降序</li>
+<li>根据字符串的长度升序|降序</li>
+</ol>
 
 
 
