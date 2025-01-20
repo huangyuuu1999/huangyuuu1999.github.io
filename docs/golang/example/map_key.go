@@ -35,6 +35,8 @@ func main() {
 		false: "false",
 	}
 	fmt.Printf("mapBool: %v\n", mapBool)
+
+	var_map_without_assignment()
 }
 
 /*
@@ -45,3 +47,12 @@ m3: map[[1 2]:array1 [9 7]:array2]
 equal: true
 mapBool: map[false:false true:true]
 */
+
+func var_map_without_assignment() {
+	var m map[int]string // 声明但不赋值
+	res := m[1]
+	fmt.Printf("res: %v\n", res)
+
+	// m[1] = "asuka" // panic: assignment to entry in nil map
+	fmt.Printf("m: %v\n", m)
+}
