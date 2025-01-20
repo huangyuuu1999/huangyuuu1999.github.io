@@ -1,6 +1,16 @@
 # go 的 map
 
-Go 语言中的 map 是一种内建的数据结构。
+Go 语言中的 map 是一种内建的数据结构，用来保存键值型数据。
+```go
+func main() {
+	m := map[string]string{
+		"巴西":"巴西利亚",
+		"澳大利亚":"堪培拉",
+		"加拿大":"渥太华"
+	}
+}
+```
+键值对API只是一套接口，实现方式可以有多种，例如java中的HashMap、TreeMap，python的dict也是使用哈希表实现。
 
 ## map 的 key
 map是保存键值对的，他的键key必须是可以用==比较的类型，chan，map，func是不可比较的，那么切片，数组可以比较吗？
@@ -47,7 +57,7 @@ func main() {
 	fmt.Printf("mapBool: %v\n", mapBool)
 }
 
-/*
+/* output
 mapInt: map[1:one 2:two 3:three]
 m1: map[one:1 two:2]
 m2: map[1.2:false 3.14:true]
@@ -80,7 +90,7 @@ TypeError: unhashable type: 'list'
 - 包含上述不可比较类型的复合类型，任何包含上述不可比较类型（如切片、函数、映射）的复合类型结构体，也不能作为 map 的键。
 
 ### best practice
-[最佳实践](https://zhuanlan.zhihu.com/p/677134644)
+实际开发中，最好不要用哪些当键？[最佳实践](https://zhuanlan.zhihu.com/p/677134644)
 
 ## map 的创建、初始化
 
@@ -88,7 +98,7 @@ map只声明不赋值的话，是 `nil`
 
 ### 使用 make 创建
 ```go
-m := make(map[string]int, 10)
+m := make(map[string]int, 10) // 容量参考值10，实际不一定分配恰好10
 ```
 ### 直接赋值初始化
 ```go
@@ -100,8 +110,22 @@ m := map[string]int{"a": 1, "b": 2, "c": 3}
 ```go
 value := m["key"]
 ```
+访问只声明，未分配的map会怎样？
+```go
+func var_map_without_assignment() {
+	var m map[int]string // 声明但不赋值
+	res := m[1]
+	fmt.Printf("res: %v\n", res)
+
+	// m[1] = "asuka" // panic: assignment to entry in nil map
+	fmt.Printf("m: %v\n", m) // 这里并不会报错
+}
+```
 
 试图访问map中不存在的键会怎样
+
+这两个问题，都能在图中得到回答
+![map读取](./map读取.png)
 
 ### 默认返回零值
 Go的map是引用类型，并且是无序的。如果你尝试访问一个不存在的键，你将得到该类型的零值（例如，对于整数类型是0，对于字符串类型是""）。以下是Go中使用map的一个例子：
