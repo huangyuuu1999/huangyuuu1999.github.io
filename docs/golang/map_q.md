@@ -8,6 +8,7 @@ func main() {
 		"澳大利亚":"堪培拉",
 		"加拿大":"渥太华"
 	}
+	fmt.Println(len(m))
 }
 ```
 键值对API只是一套接口，实现方式可以有多种，例如java中的HashMap、TreeMap，python的dict也是使用哈希表实现。
