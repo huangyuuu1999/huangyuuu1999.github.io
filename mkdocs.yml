@@ -67,6 +67,8 @@ nav:
     - 字典树: '数据结构算法/trie.md'
   - '数据如何表示':
     - utf-8编码: '数据的表示/utf8.md'
+  - 'redis':
+    - 数据结构: 'redis/数据结构.md'
 plugins:
   # [搜索功能]
   # https://squidfunk.github.io/mkdocs-material/plugins/search/
