@@ -1045,50 +1045,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#unicode_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      unicode 编码策略
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="unicode 编码策略">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#utf32" class="md-nav__link">
-    <span class="md-ellipsis">
-      utf32 定长编码
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#utf8" class="md-nav__link">
-    <span class="md-ellipsis">
-      utf8 变长编码
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#utf8_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      utf8 编码汉字
-    </span>
-  </a>
   
 </li>
       
@@ -1234,50 +1192,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#unicode_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      unicode 编码策略
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="unicode 编码策略">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#utf32" class="md-nav__link">
-    <span class="md-ellipsis">
-      utf32 定长编码
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#utf8" class="md-nav__link">
-    <span class="md-ellipsis">
-      utf8 变长编码
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#utf8_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      utf8 编码汉字
-    </span>
-  </a>
   
 </li>
       
@@ -1304,15 +1220,149 @@
 <p>ascii保存了0-127编号的128个字符，只需要一个字节1byte(8bit) 就能表示一个英文字符。
 保存字符到计算机时，只需要转换为01序列即可，解码的时候，也只需要按照字节拆分、查表翻译回字符即可。</p>
 <h2 id="unicode">Unicode标准<a class="headerlink" href="#unicode" title="Permanent link">&para;</a></h2>
-<p>unicode是一种标准，简单来讲，就是把世界上的一切符号，都对应一个唯一编码。</p>
+<p>unicode是一种标准，简单来讲，就是把世界上的一切符号，都对应一个唯一编码。
+unicode = unicode字符集 + 多种可选的编码策略。</p>
+<p>简单来讲，就是unicode标准这帮人，确定了一个大表，地球人日常用的大部分文字，都在这个表里面有一个序号，例如<code>a</code>就是97，<code>你</code>是20320号，等等。</p>
+<p>怎么把这个97数字保存在计算机里面，保存了又怎么去把他转回字符，就是编码规则（策略），例如utf8，utf32。</p>
+<p>等等，有人在这里会有困惑了，存一个数字编号还需要什么规则呢？直接转为二进制存不就好了吗？这个问题会在后面的编码规则中详细提到，如果你有这个疑问，原因在于：你或许不知道定长编码和边长编码的一些事情。</p>
+<p>可以使用<code>python</code>的<code>ord</code>函数来获取某个字符对应的unicode编号，非常便捷！
+<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="c1"># test_ord.py</span>
+</span><span id="__span-0-2"><span class="c1"># 使用 python 的 ord 函数 来获取字符在 unicode 字符集中的编号</span>
+</span><span id="__span-0-3">
+</span><span id="__span-0-4"><span class="n">emoji</span> <span class="o">=</span> <span class="s2">&quot;😅&quot;</span>
+</span><span id="__span-0-5">
+</span><span id="__span-0-6"><span class="n">chinese_char</span> <span class="o">=</span> <span class="s2">&quot;你&quot;</span>
+</span><span id="__span-0-7">
+</span><span id="__span-0-8"><span class="n">unicode_id1</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">emoji</span><span class="p">)</span>
+</span><span id="__span-0-9"><span class="n">unicode_id2</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">chinese_char</span><span class="p">)</span>
+</span><span id="__span-0-10">
+</span><span id="__span-0-11"><span class="nb">print</span><span class="p">(</span><span class="n">unicode_id1</span><span class="p">,</span> <span class="n">unicode_id2</span><span class="p">)</span>
+</span><span id="__span-0-12">
+</span><span id="__span-0-13"><span class="c1"># ❯ python test_ord.py</span>
+</span><span id="__span-0-14"><span class="c1"># 128517 20320</span>
+</span></code></pre></div></td></tr></table></div>
+当然如果你试过了很多字符，就会发现，上面的代码有时候会报错，就像下面这样！
+<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><span class="c1"># test_ord.py</span>
+</span><span id="__span-1-2"><span class="c1"># ord函数在处理 💪🏿 的时候报错了！因为他不是 “一个字符”，更专业来讲，💪🏿 不止一个代码点（rune或code point）</span>
+</span><span id="__span-1-3">
+</span><span id="__span-1-4"><span class="n">emoji_with_2_code_point</span> <span class="o">=</span> <span class="s2">&quot;💪🏿&quot;</span>
+</span><span id="__span-1-5">
+</span><span id="__span-1-6"><span class="n">unicode_id3</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">emoji_with_2_code_point</span><span class="p">)</span>
+</span><span id="__span-1-7">
+</span><span id="__span-1-8"><span class="nb">print</span><span class="p">(</span><span class="n">unicode_id3</span><span class="p">)</span>
+</span><span id="__span-1-9">
+</span><span id="__span-1-10"><span class="c1"># unicode_id3 = ord(emoji_with_2_code_point)</span>
+</span><span id="__span-1-11">                <span class="c1">#   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+</span><span id="__span-1-12"><span class="c1"># TypeError: ord() expected a character, but string of length 2 found</span>
+</span></code></pre></div></td></tr></table></div>
+为了理解这个奇怪的现象，我们必须好好地了解一下 <code>unicode 代码点</code> 以及 <code>字素 grapheme</code> 这些概念。</p>
 <h3 id="no-character-but-grapheme">No character, but grapheme<a class="headerlink" href="#no-character-but-grapheme" title="Permanent link">&para;</a></h3>
-<p>在unicode中，不再使用“字符”这样的字眼，因为在英文中，一个最小的单元显然是一个字母，但是在中文中，最小的单元是一个字，你不能降这二者都称为char？</p>
+<p>“grapheme 字素 ———— 最小的、有意义的，人类书写单元。”</p>
+<p><img alt="字素和unicode代码点的关系" src="../grapheme.png" /></p>
+<p>在unicode中，不再使用“字符”这样的字眼，而使用“字素”grapheme这个称呼。</p>
 <p>在英文中，为了组成一个单词，你可能需要多个字母，例如<code>cat</code>需要c，a，t三个字母。
-在现代汉语里面，<code>自行车</code> 这个词语需要三个字，自，行，车来构成。</p>
-<p>我们的unicode编码，实际上就是在对这种构成<code>word</code>的最小单位进行编号，而这种最小单位，就被称为grapheme。</p>
+在现代汉语里面，<code>自行车</code> 这个词语需要三个字，自，行，车来构成，<code>c</code> <code>a</code> <code>t</code> <code>自</code> <code>行</code> <code>车</code> 这些单个的就叫字素，耽搁的表情也是一个字素。</p>
+<p>我们的unicode编码，实际上就是在对这种能够单独书写的最小单位进行编号，而这种最小单位，就被称为grapheme。</p>
+<p>唯一的坑点在于：有的字素对应一个unicode代码点，有的则对应多个。</p>
 <h3 id="unicode_1">unicode 码点<a class="headerlink" href="#unicode_1" title="Permanent link">&para;</a></h3>
-<p>code point 又是什么？
-有些字符可以对应一个code point，有的则可以对应两个，例如👍🏻对应一个黄色的👍，和一个白色块。</p>
+<p>code point 又是什么？ 在前面我们提到 unicode 标准维护了一张大表，这张表里的每一个东西都对应一个编号，实际上这些表里面的东西就是unicode代码点，前面我们说“为每一个字符编一个号”这实际上是不准确的 😁「请原谅我，毕竟之前我们还没引入字素，代码点这些概念」。</p>
+<p>有些字符可以对应一个code point，有的则可以对应两个，例如👍🏻对应一个黄色的👍，和一个白色块；又比如有些字母上面带音标，实际上可能是两个码点：不带音标的字母 和 单独的音标 组合起来的。
+“总之，一个看起来的字符（字素），有可能是unicode中的多个代码点的组合。” 如果不直到这一点，下面的代码的运行结果就会出乎意料。
+```python []</p>
+<h1 id="test_runepy">test_rune.py<a class="headerlink" href="#test_runepy" title="Permanent link">&para;</a></h1>
+<h1 id="python-3120">Python 3.12.0<a class="headerlink" href="#python-3120" title="Permanent link">&para;</a></h1>
+<p>s1 = "你是这个👍🏻"
+s2 = "你是这个👍"
+l1, l2 = len(s1), len(s2)
+print("l1:", l1)
+print("l2:", l2)</p>
+<p>"""
+❯ python test_rune.py
+l1: 6
+l2: 5
+"""
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1">```go []
+</span><span id="__span-2-2">// test_rune.go
+</span><span id="__span-2-3">// go version go1.22.1 darwin/arm64
+</span><span id="__span-2-4">
+</span><span id="__span-2-5">package main
+</span><span id="__span-2-6">
+</span><span id="__span-2-7">import (
+</span><span id="__span-2-8">    &quot;fmt&quot;
+</span><span id="__span-2-9">    &quot;unicode/utf8&quot;
+</span><span id="__span-2-10">)
+</span><span id="__span-2-11">
+</span><span id="__span-2-12">func main() {
+</span><span id="__span-2-13">    s1 := &quot;你是这个👍🏻&quot;
+</span><span id="__span-2-14">    s2 := &quot;你是这个👍&quot;
+</span><span id="__span-2-15">    l1, l2 := len(s1), len(s2)
+</span><span id="__span-2-16">    fmt.Printf(&quot;l1: %v\n&quot;, l1)
+</span><span id="__span-2-17">    fmt.Printf(&quot;l2: %v\n&quot;, l2)
+</span><span id="__span-2-18">    r1, r2 := utf8.RuneCountInString(s1), utf8.RuneCountInString(s2)
+</span><span id="__span-2-19">    fmt.Printf(&quot;r1: %v\n&quot;, r1)
+</span><span id="__span-2-20">    fmt.Printf(&quot;r2: %v\n&quot;, r2)
+</span><span id="__span-2-21">}
+</span><span id="__span-2-22">
+</span><span id="__span-2-23">/*
+</span><span id="__span-2-24">❯ go run test_rune.go
+</span><span id="__span-2-25">l1: 20
+</span><span id="__span-2-26">l2: 16
+</span><span id="__span-2-27">r1: 6
+</span><span id="__span-2-28">r2: 5
+</span><span id="__span-2-29">*/
+</span></code></pre></div></td></tr></table></div></p>
 <h3 id="unicode_2">unicode 编码策略<a class="headerlink" href="#unicode_2" title="Permanent link">&para;</a></h3>
 <p>unicode是一种标准，那么怎么对这个标准进行编码？有多个标准，例如utf8, utf16等。</p>
 <h4 id="utf32">utf32 定长编码<a class="headerlink" href="#utf32" title="Permanent link">&para;</a></h4>
@@ -1321,7 +1371,8 @@ utf32的优点是所有字符，无论常见和罕见，都编码成为相同长
 缺点是浪费内存。</p>
 <h4 id="utf8">utf8 变长编码<a class="headerlink" href="#utf8" title="Permanent link">&para;</a></h4>
 <p>utf8是变长编码，不同范围的代码点，对应的编码长度不一样，兼容ascii。
-例如一个汉字，编码之后是三个字节。</p>
+例如一个汉字，编码之后是三个字节。
+utf8编码是变长编码，这样十分节省内存（相较于utf32定长编码来讲），但是在转换的时候就麻烦一点，因为你并不知道当前的这一个字节属于哪个字。</p>
 <h2 id="utf8_1">utf8 编码汉字<a class="headerlink" href="#utf8_1" title="Permanent link">&para;</a></h2>
 <p>一个汉字在utf8中，经过编码，长度是三个字节，这是为什么？
 原因是在unicode编码标准中，中文汉字的编码范围正好落在 三字节编码的范围内。</p>
@@ -1336,9 +1387,9 @@ utf32的优点是所有字符，无论常见和罕见，都编码成为相同长
 在python中可以用ord函数得到字符对应的unicode码值（十进制）
 <div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;你&quot;</span>
-</span><span id="__span-0-2"><span class="o">&gt;&gt;&gt;</span> <span class="nb">ord</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-</span><span id="__span-0-3"><span class="mi">20320</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;你&quot;</span>
+</span><span id="__span-3-2"><span class="o">&gt;&gt;&gt;</span> <span class="nb">ord</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span id="__span-3-3"><span class="mi">20320</span>
 </span></code></pre></div></td></tr></table></div></p>
 <p>也可以在go语言中验证
 <div class="language-go highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1358,24 +1409,24 @@ utf32的优点是所有字符，无论常见和罕见，都编码成为相同长
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><span class="c1">// utf8_.go</span>
-</span><span id="__span-1-2"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
-</span><span id="__span-1-3">
-</span><span id="__span-1-4"><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-1-5"><span class="w">    </span><span class="s">&quot;fmt&quot;</span>
-</span><span id="__span-1-6"><span class="w">    </span><span class="s">&quot;unicode/utf8&quot;</span>
-</span><span id="__span-1-7"><span class="p">)</span>
-</span><span id="__span-1-8">
-</span><span id="__span-1-9"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-10"><span class="w">    </span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;你6&quot;</span>
-</span><span id="__span-1-11"><span class="w">    </span><span class="nx">l</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
-</span><span id="__span-1-12"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;l: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">l</span><span class="p">)</span><span class="w"> </span><span class="c1">// 应该是4</span>
-</span><span id="__span-1-13"><span class="w">    </span><span class="nx">rn</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">utf8</span><span class="p">.</span><span class="nx">RuneCountInString</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
-</span><span id="__span-1-14"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;rn: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">rn</span><span class="p">)</span>
-</span><span id="__span-1-15"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-16"><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%b \n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
-</span><span id="__span-1-17"><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-1-18"><span class="p">}</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><span class="c1">// utf8_.go</span>
+</span><span id="__span-4-2"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+</span><span id="__span-4-3">
+</span><span id="__span-4-4"><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-4-5"><span class="w">    </span><span class="s">&quot;fmt&quot;</span>
+</span><span id="__span-4-6"><span class="w">    </span><span class="s">&quot;unicode/utf8&quot;</span>
+</span><span id="__span-4-7"><span class="p">)</span>
+</span><span id="__span-4-8">
+</span><span id="__span-4-9"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-10"><span class="w">    </span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;你6&quot;</span>
+</span><span id="__span-4-11"><span class="w">    </span><span class="nx">l</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+</span><span id="__span-4-12"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;l: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">l</span><span class="p">)</span><span class="w"> </span><span class="c1">// 应该是4</span>
+</span><span id="__span-4-13"><span class="w">    </span><span class="nx">rn</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">utf8</span><span class="p">.</span><span class="nx">RuneCountInString</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+</span><span id="__span-4-14"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;rn: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">rn</span><span class="p">)</span>
+</span><span id="__span-4-15"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-16"><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%b \n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+</span><span id="__span-4-17"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-18"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 注意这里可以看到，go语言中的rune。
 <div class="language-shell highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -1384,13 +1435,13 @@ utf32的优点是所有字符，无论常见和罕见，都编码成为相同长
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1">❯<span class="w"> </span>go<span class="w"> </span>run<span class="w"> </span>utf8_.go
-</span><span id="__span-2-2">l:<span class="w"> </span><span class="m">4</span>
-</span><span id="__span-2-3">rn:<span class="w"> </span><span class="m">2</span>
-</span><span id="__span-2-4"><span class="m">11100100</span><span class="w"> </span>
-</span><span id="__span-2-5"><span class="m">10111101</span><span class="w"> </span>
-</span><span id="__span-2-6"><span class="m">10100000</span><span class="w"> </span>
-</span><span id="__span-2-7"><span class="m">110110</span><span class="w"> </span><span class="c1"># 这个是第二个 rune 也就是 6 这个字符，在 ascii 范围内</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1">❯<span class="w"> </span>go<span class="w"> </span>run<span class="w"> </span>utf8_.go
+</span><span id="__span-5-2">l:<span class="w"> </span><span class="m">4</span>
+</span><span id="__span-5-3">rn:<span class="w"> </span><span class="m">2</span>
+</span><span id="__span-5-4"><span class="m">11100100</span><span class="w"> </span>
+</span><span id="__span-5-5"><span class="m">10111101</span><span class="w"> </span>
+</span><span id="__span-5-6"><span class="m">10100000</span><span class="w"> </span>
+</span><span id="__span-5-7"><span class="m">110110</span><span class="w"> </span><span class="c1"># 这个是第二个 rune 也就是 6 这个字符，在 ascii 范围内</span>
 </span></code></pre></div></td></tr></table></div></p>
 <p>再来看下下面的例子，就能知道 rune 实际上就是 utf8 的代码点。
 <div class="language-go highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1416,31 +1467,32 @@ utf32的优点是所有字符，无论常见和罕见，都编码成为相同长
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
-</span><span id="__span-3-2">
-</span><span id="__span-3-3"><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-3-4"><span class="w">    </span><span class="s">&quot;fmt&quot;</span>
-</span><span id="__span-3-5"><span class="w">    </span><span class="s">&quot;unicode/utf8&quot;</span>
-</span><span id="__span-3-6"><span class="p">)</span>
-</span><span id="__span-3-7">
-</span><span id="__span-3-8"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-9"><span class="w">    </span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;你6&quot;</span>
-</span><span id="__span-3-10"><span class="w">    </span><span class="nx">l</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
-</span><span id="__span-3-11"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;l: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">l</span><span class="p">)</span><span class="w"> </span><span class="c1">// 应该是4</span>
-</span><span id="__span-3-12"><span class="w">    </span><span class="nx">rn</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">utf8</span><span class="p">.</span><span class="nx">RuneCountInString</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
-</span><span id="__span-3-13"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;rn: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">rn</span><span class="p">)</span>
-</span><span id="__span-3-14"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-15"><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%b \n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
-</span><span id="__span-3-16"><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-3-17">
-</span><span id="__span-3-18"><span class="w">    </span><span class="nx">s1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;👍🏻&quot;</span><span class="w"> </span><span class="c1">// 这个就含有两个 unicode 代码点</span>
-</span><span id="__span-3-19"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;s1: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">s1</span><span class="p">)</span>
-</span><span id="__span-3-20"><span class="w">    </span><span class="nx">l1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">s1</span><span class="p">)</span>
-</span><span id="__span-3-21"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;l1: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">l1</span><span class="p">)</span><span class="w"> </span><span class="c1">// 8</span>
-</span><span id="__span-3-22"><span class="w">    </span><span class="nx">rn1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">utf8</span><span class="p">.</span><span class="nx">RuneCountInString</span><span class="p">(</span><span class="nx">s1</span><span class="p">)</span><span class="w"> </span><span class="c1">// 2</span>
-</span><span id="__span-3-23"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;rn1: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">rn1</span><span class="p">)</span>
-</span><span id="__span-3-24"><span class="p">}</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+</span><span id="__span-6-2">
+</span><span id="__span-6-3"><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-6-4"><span class="w">    </span><span class="s">&quot;fmt&quot;</span>
+</span><span id="__span-6-5"><span class="w">    </span><span class="s">&quot;unicode/utf8&quot;</span>
+</span><span id="__span-6-6"><span class="p">)</span>
+</span><span id="__span-6-7">
+</span><span id="__span-6-8"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-9"><span class="w">    </span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;你6&quot;</span>
+</span><span id="__span-6-10"><span class="w">    </span><span class="nx">l</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+</span><span id="__span-6-11"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;l: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">l</span><span class="p">)</span><span class="w"> </span><span class="c1">// 应该是4</span>
+</span><span id="__span-6-12"><span class="w">    </span><span class="nx">rn</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">utf8</span><span class="p">.</span><span class="nx">RuneCountInString</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+</span><span id="__span-6-13"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;rn: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">rn</span><span class="p">)</span>
+</span><span id="__span-6-14"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-15"><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%b \n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+</span><span id="__span-6-16"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-17">
+</span><span id="__span-6-18"><span class="w">    </span><span class="nx">s1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;👍🏻&quot;</span><span class="w"> </span><span class="c1">// 这个就含有两个 unicode 代码点</span>
+</span><span id="__span-6-19"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;s1: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">s1</span><span class="p">)</span>
+</span><span id="__span-6-20"><span class="w">    </span><span class="nx">l1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">s1</span><span class="p">)</span>
+</span><span id="__span-6-21"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;l1: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">l1</span><span class="p">)</span><span class="w"> </span><span class="c1">// 8</span>
+</span><span id="__span-6-22"><span class="w">    </span><span class="nx">rn1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">utf8</span><span class="p">.</span><span class="nx">RuneCountInString</span><span class="p">(</span><span class="nx">s1</span><span class="p">)</span><span class="w"> </span><span class="c1">// 2</span>
+</span><span id="__span-6-23"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;rn1: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">rn1</span><span class="p">)</span>
+</span><span id="__span-6-24"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div></p>
+<p>如果还需要知道一些编码的细节，可以看<a href="https://www.bilibili.com/video/BV14Ns8eEERu/">这个视频</a></p>
 
 
 
