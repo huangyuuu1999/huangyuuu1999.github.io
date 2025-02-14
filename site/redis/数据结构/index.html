@@ -658,6 +658,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../golang/GMP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GMP模型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1169,6 +1190,69 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    riscv汇编
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            riscv汇编
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../riscv汇编/ISA.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ISA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1338,8 +1422,8 @@
 </span><span id="__span-0-19"><span class="s2">&quot;listpack&quot;</span>
 </span></code></pre></div></td></tr></table></div>
 上面的 redis-cli 表明了redis数据类型的type和encoding的区别。encoding是底层实现数据结构，同一种type在不同的时候，会根据要保存的数据的大小以及其他因素选择合适的encoding，对应关系如下图；</p>
-<p><img alt="redis类型type和encoding的对应关系" src="../type_encoding_mapping.jpg" />
-（注意这个是旧版本的，最新版redis7.0有部分变化）</p>
+<p><img alt="redis类型type和encoding的对应关系" src="../type_encoding_mapping.jpg" /></p>
+<p>（注意这个是旧版本的，最新版redis7.0有部分变化）</p>
 <p>type是对外表现的行为，即使内部的encoding不一样，只要type一样，就共用一套操作api，例如set都可以asdd，sismember等命令。</p>
 <p>有些type的的encoding随版本发生了变化，例如ziplist在redis7.0已经废弃了，使用listpack来代替。</p>
 <p>总之，redis的实现各类type的底层数据结构，也就是这几种，<code>int</code>, <code>embstr</code>, <code>raw</code>, <code>ziplist</code>, <code>linkedlist</code>, <code>intset</code>, <code>hash</code>, <code>skiplist</code>。</p>
