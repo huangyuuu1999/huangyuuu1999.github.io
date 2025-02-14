@@ -774,6 +774,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#go-func" class="md-nav__link">
+    <span class="md-ellipsis">
+      go func() {...} 发生了什么
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#g0m0" class="md-nav__link">
+    <span class="md-ellipsis">
+      g0和m0
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1317,6 +1335,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#go-func" class="md-nav__link">
+    <span class="md-ellipsis">
+      go func() {...} 发生了什么
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#g0m0" class="md-nav__link">
+    <span class="md-ellipsis">
+      g0和m0
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1342,7 +1378,8 @@ M -&gt; thread 物理线程</p>
 <h3 id="m">M的事情<a class="headerlink" href="#m" title="Permanent link">&para;</a></h3>
 <p>用户进程是由操作系统来调度的，一个进程什么时候获得CPU等资源，是由操作系统来决定的。这一层是OS的调度层，go语言的调度层是在这一层上面的细粒度的调度层，要注意区分这两个调度。</p>
 <p>这里的M说是线程，实际上在linux下面还是可以理解为进程，这都无关紧要。
-M是在程序开始运行的时候自动创建的，数量是可以配置的，跟硬件有关，不同的go版本也不完全一样。</p>
+M是在程序开始运行的时候自动创建的，数量是可以配置的，跟硬件有关，不同的go版本也不完全一样。
+M可以休眠，也可以被销毁。</p>
 <h3 id="p">P到底是干啥的？<a class="headerlink" href="#p" title="Permanent link">&para;</a></h3>
 <p>P是处理器，协程就是一段代码，只有到了P上面才能执行起来，也就是说，P的任务就是获取G来执行它们的。
 那么P从哪里获取G来执行呢？
@@ -1358,6 +1395,18 @@ P的本地队列里面的协程是有一定的数量限制的。
 G是抢占式，每个G最多运行一段时间就要下CPU让出资源。</p>
 <h2 id="hand-off">hand off 移交<a class="headerlink" href="#hand-off" title="Permanent link">&para;</a></h2>
 <p>当某个P拿到G开始执行，执行的过程中发生了阻塞，不希望在此M上等待，可以带着自己的本地队列，转移到其他空闲的M上面执行。（复用线程）</p>
+<h2 id="go-func">go func() {...} 发生了什么<a class="headerlink" href="#go-func" title="Permanent link">&para;</a></h2>
+<p>执行 <code>go func() {...}</code> 的时候，先创建一个G，创建完优先放在当前运行的G的本地队列，如果满了，就放到全局队列。
+如果到了本地队列之后，当排队排到了，P就会尝试获取这个G，到M上执行。</p>
+<p>执行G的时候如果发生阻塞（系统调用或者阻塞，或者说中断了）了，就从休眠的M队列中获取M，没有就创建M，创建完了，让这个M接管P，去进行新的执行，原来阻塞的G就在远在的M上阻塞去。</p>
+<h2 id="g0m0">g0和m0<a class="headerlink" href="#g0m0" title="Permanent link">&para;</a></h2>
+<p>启动程序之后，编号为0的主线程就是m0，
+这个m0保存在全局变量runtime.m0，不需要在heap上分配？啥意思</p>
+<p>负责执行初始化操作，并启动第一个g</p>
+<p>g0，每次启动一个M，都会第一个创建goroutine g0。
+每一个M都有一个g0
+g0的工作就是负责调度其他的g</p>
+<p>在调度或者系统调用的时候，M都会先切换到g0，再来调度。</p>
 
 
 
