@@ -254,6 +254,25 @@ func deferWithRecover() {
 
 defer 的回调函数内部也可以写panic，那么panic会表现出什么行为？
 
+g协程的内部，除了维护defer链表，还维护了panic链表。defer链表的每个节点就是defer结构体，defer结构体内部定义了started表示是否开始执行了，还定义了_panic表示是哪个panic启动的这个defer。
+```go
+// 伪代码，仅用于说明defer内部和g内部的成员
+type g struct {
+	_defer // deferlist defer链表
+	_panic // paniclist panic链表
+} 
+
+type Defer struct {
+	started bool
+	_panic // panic 表示谁启动了这个 defer
+}
+```
+当发生panic的时候，把panic链表的头上加上当前panic，然后就开始执行defer链表，注意后注册的defer越靠近链表头，开始执行一个defer的时候，把这个defer的started设置为true，_panic设置为当前的panic。
+
+如果现在defer中又出现了panic，那么就在panic链表的头上再插入一个新的panic节点，然后再从defer链表的头节点开始执行，当发现已经started并且_panic不是自己的时候，【这个_panic就标记为结束？】就继续往后执行下一个defer节点。
+
+当全部的defer节点执行完毕之后，就要进行panic的打印了，此时是从g的panic链表尾部向头部打印，也就是panic出现的顺序打印的。
+
 ### defer中有panic，但是不recover
 ```go
 // panic_in_defer.go
@@ -294,7 +313,43 @@ func func1() {
 //         C:/Users/Administrator/Desktop/codes/defer/panic_in_defer.go:7 +0xf
 // exit status 2
 ```
-可以看到三个panic都打印出来了。
+可以看到三个panic都打印出来了，并且是按照先后顺序打印的，这也是协程g的panic链表的从尾到头的打印顺序。
+
+### 嵌套 panic 测试题
+看下面的代码，输出是什么？来源是 [golang中文学习文档](https://www.dstgo.cn/essential/senior/95.error.html#%E5%96%84%E5%90%8E) 的错误-panic章节。
+```go
+func main() {
+	defer fmt.Println("A") // 1
+	defer func() { //2
+		func() {
+			panic("panicA")
+			defer fmt.Println("E")
+		}()
+	}()
+	fmt.Println("C")
+	dangerOp()
+	defer fmt.Println("D")
+}
+
+func dangerOp() {
+	defer fmt.Println(1) //3
+	defer fmt.Println(2) //4
+	panic("panicB")
+	defer fmt.Println(3)
+}
+```
+首先再main协程中注册了两个defer，然后打印出'C'，随后进入dangerOp函数内（注意还是本协程，没有开新的协程），再次注册了两个函数，注册的defer在代码中注释为 1，2，3，4。在defer链上的首尾顺序是 4321。然后panicB在main-g的panic链表挂上panicB，触发defer。输出2、1。
+然后执行defer2，立马panicA，在main-g的panic链的panicB前面挂上panicA，再去执行defer链。此时注意到defer2还在链上，且状态为started，但是_panic为panicB因为是panicB触发的他，那么就跳过这个defer，再去执行defer1了，注意此时也会标记panicA为done。到最后defer全部执行完了。就输出panic信息，顺序是panicB，panicA。
+
+所以总的答案是：
+```txt
+C 
+2 
+1 
+A 
+panicB 
+panicA
+```
 
 ### defer中有panic，进行recover
 捕捉到的是后面出现的panic。
