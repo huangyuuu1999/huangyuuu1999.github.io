@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../../python/func/">
+        <link rel="prev" href="../../defer/defer/">
       
       
-        <link rel="next" href="../innerfunc2/">
+        <link rel="next" href="../../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/scanner/">
       
       
-      <link rel="icon" href="../../img/favicon.ico">
+      <link rel="icon" href="../../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
     
     
       
-        <title>在函数内定义函数 - Pineapply</title>
+        <title>闭包 - Pineapply</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="Pineapply" class="md-header__button md-logo" aria-label="Pineapply" data-md-component="logo">
+    <a href="../../.." title="Pineapply" class="md-header__button md-logo" aria-label="Pineapply" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -103,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              在函数内定义函数
+              闭包
             
           </span>
         </div>
@@ -211,7 +216,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Pineapply" class="md-nav__button md-logo" aria-label="Pineapply" data-md-component="logo">
+    <a href="../../.." title="Pineapply" class="md-nav__button md-logo" aria-label="Pineapply" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -229,7 +234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -284,7 +289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/i_scope/" class="md-nav__link">
+      <a href="../../../python/i_scope/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -305,7 +310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/for_i_in/" class="md-nav__link">
+      <a href="../../../python/for_i_in/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -326,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/defaultdict_use/" class="md-nav__link">
+      <a href="../../../python/defaultdict_use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -347,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/func/" class="md-nav__link">
+      <a href="../../../python/func/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -409,17 +414,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../innerfunc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -428,7 +426,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -441,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../innerfunc2/" class="md-nav__link">
+      <a href="../../innerfunc2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -462,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../innernested/" class="md-nav__link">
+      <a href="../../innernested/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -483,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../slice_q/" class="md-nav__link">
+      <a href="../../slice_q/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -504,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../slice_slice/" class="md-nav__link">
+      <a href="../../slice_slice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -525,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../map_q/" class="md-nav__link">
+      <a href="../../map_q/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -546,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../nil/" class="md-nav__link">
+      <a href="../../nil/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -567,7 +564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../go_routine/" class="md-nav__link">
+      <a href="../../go_routine/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -588,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../go_lock/" class="md-nav__link">
+      <a href="../../go_lock/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -609,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../error/" class="md-nav__link">
+      <a href="../../error/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -630,7 +627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sort/" class="md-nav__link">
+      <a href="../../sort/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -651,7 +648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../heap/" class="md-nav__link">
+      <a href="../../heap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -672,7 +669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GMP/" class="md-nav__link">
+      <a href="../../GMP/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -693,7 +690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../defer/defer/" class="md-nav__link">
+      <a href="../../defer/defer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -711,10 +708,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../closure/closure/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -723,6 +729,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -777,7 +784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/scanner/" class="md-nav__link">
+      <a href="../../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/scanner/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -798,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/task/" class="md-nav__link">
+      <a href="../../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/task/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -819,7 +826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/signal/" class="md-nav__link">
+      <a href="../../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/signal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -840,7 +847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/keyword/" class="md-nav__link">
+      <a href="../../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/keyword/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -861,7 +868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/ast/" class="md-nav__link">
+      <a href="../../../monkey%E8%A7%A3%E9%87%8A%E5%99%A8/ast/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -924,7 +931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/topo/" class="md-nav__link">
+      <a href="../../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/topo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -945,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/prefix_diff/" class="md-nav__link">
+      <a href="../../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/prefix_diff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -966,7 +973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/trie/" class="md-nav__link">
+      <a href="../../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/trie/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1029,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA/utf8/" class="md-nav__link">
+      <a href="../../../%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA/utf8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1092,7 +1099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../redis/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="md-nav__link">
+      <a href="../../../redis/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1113,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../redis/%E6%8C%81%E4%B9%85%E5%8C%96/" class="md-nav__link">
+      <a href="../../../redis/%E6%8C%81%E4%B9%85%E5%8C%96/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1134,7 +1141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../redis/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" class="md-nav__link">
+      <a href="../../../redis/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1197,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../riscv%E6%B1%87%E7%BC%96/ISA/" class="md-nav__link">
+      <a href="../../../riscv%E6%B1%87%E7%BC%96/ISA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1235,6 +1242,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1249,9 +1258,8 @@
                   
 
 
-  <h1>在函数内定义函数</h1>
-
-<p>在golang函数的内部，可以定义另外的函数</p>
+<h1 id="_1">闭包<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>先看一个案例。
 <div class="language-go highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1262,40 +1270,49 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
-</span><span id="__span-0-2">
-</span><span id="__span-0-3"><span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
-</span><span id="__span-0-4">
-</span><span id="__span-0-5"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-6"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Outer function&quot;</span><span class="p">)</span>
-</span><span id="__span-0-7"><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">innerFunction</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-8"><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Inner function&quot;</span><span class="p">)</span>
-</span><span id="__span-0-9"><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-10"><span class="w">    </span><span class="nx">innerFunction</span><span class="p">()</span><span class="w"> </span><span class="c1">// 没有这一句会出错，因为innerFunction定义而不使用</span>
-</span><span id="__span-0-11"><span class="p">}</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="c1">// cls.go</span>
+</span><span id="__span-0-2"><span class="c1">// 闭包函数定义时的上下文</span>
+</span><span id="__span-0-3">
+</span><span id="__span-0-4"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+</span><span id="__span-0-5">
+</span><span id="__span-0-6"><span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
+</span><span id="__span-0-7">
+</span><span id="__span-0-8"><span class="kd">func</span><span class="w"> </span><span class="nx">outer</span><span class="p">()</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-9"><span class="w">    </span><span class="nx">val</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">3</span>
+</span><span id="__span-0-10"><span class="w">    </span><span class="nx">a</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-11"><span class="w">        </span><span class="nx">val</span><span class="o">++</span>
+</span><span id="__span-0-12"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">val</span>
+</span><span id="__span-0-13"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-14"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span>
+</span><span id="__span-0-15"><span class="p">}</span>
+</span><span id="__span-0-16">
+</span><span id="__span-0-17"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-18"><span class="w">    </span><span class="nx">val</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">9</span>
+</span><span id="__span-0-19"><span class="w">    </span><span class="nx">_</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">val</span>
+</span><span id="__span-0-20"><span class="w">    </span><span class="nx">f</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">outer</span><span class="p">()</span>
+</span><span id="__span-0-21"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-22"><span class="w">        </span><span class="nx">res</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">f</span><span class="p">()</span>
+</span><span id="__span-0-23"><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;res: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span>
+</span><span id="__span-0-24"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-25"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
-<div class="language-go highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
-</span><span id="__span-1-2">
-</span><span id="__span-1-3"><span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
-</span><span id="__span-1-4">
-</span><span id="__span-1-5"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-6"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Outer function&quot;</span><span class="p">)</span>
-</span><span id="__span-1-7"><span class="w">    </span><span class="nx">innerFunction</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 使用 := 也可以</span>
-</span><span id="__span-1-8"><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Inner function&quot;</span><span class="p">)</span>
-</span><span id="__span-1-9"><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-1-10"><span class="w">    </span><span class="nx">innerFunction</span><span class="p">()</span>
-</span><span id="__span-1-11"><span class="p">}</span>
-</span></code></pre></div></td></tr></table></div>
+函数是一等公民，可以被赋值、传递，返回。outer函数在内部定义了一个闭包函数，并返回出来。
+但是注意，当闭包函数在外面被接受时，其中的val变量，仍然是定义他的时候的上下文中的val。</p>
+<p>在外面调用闭包函数，修改的也是定义的时候上下文中的val。而不是main当中的val=9。</p>
 
 
 
@@ -1348,10 +1365,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.tracking", "navigation.top", "search.highlight", "search.share", "search.suggest", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["header.autohide", "navigation.tracking", "navigation.top", "search.highlight", "search.share", "search.suggest", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
     
   </body>

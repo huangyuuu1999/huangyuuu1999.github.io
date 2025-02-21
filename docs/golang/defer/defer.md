@@ -383,3 +383,35 @@ func func2() {
 	panic("func1 panic")
 }
 ```
+
+## recover 的作用
+
+recover 把当前执行的 panic 的 recovered 字段置为 true。
+```go
+// recover_panic.go
+// 展示recover的作用
+
+package main
+
+import "fmt"
+
+func main() {
+	A()
+}
+
+func A() {
+	defer A1()
+	defer A2()
+	panic("panicA")
+}
+
+func A1() {
+	fmt.Println("A1")
+}
+
+func A2() {
+	p := recover()
+	fmt.Printf("p: %v\n", p)
+}
+```
+当执行到A的panicA时，g的defer链表挂着A1，A2，panic链表挂上panicA，然后开始执行defer，先执行A2，recover把当前的panicA设置为recovered，继续往下执行，当每个defer执行完了以后，都会检查当前正在执行的panic是否被恢复了，如果已经recovered，就把他从链表中移除。

@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../../GMP/">
-      
-      
-        <link rel="next" href="../../closure/closure/">
       
       
       <link rel="icon" href="../../../img/favicon.ico">
@@ -20,7 +16,7 @@
     
     
       
-        <title>defer - Pineapply</title>
+        <title>defer 关键字 - Pineapply</title>
       
     
     
@@ -108,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              defer
+              defer 关键字
             
           </span>
         </div>
@@ -377,19 +373,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -403,7 +397,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Go语言
@@ -687,30 +681,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    defer
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../defer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -719,185 +693,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#defer_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      defer 的使用场景
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="defer 的使用场景">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#defer_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      defer 用来关闭文件描述符
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#defer_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      defer 记录日志
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#defer_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      defer 用来捕获错误
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#defer_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      defer的执行顺序和时机
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="defer的执行顺序和时机">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#defer-lifo" class="md-nav__link">
-    <span class="md-ellipsis">
-      多个defer LIFO
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#defer-return" class="md-nav__link">
-    <span class="md-ellipsis">
-      defer 在 return 后执行
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deferpanic" class="md-nav__link">
-    <span class="md-ellipsis">
-      defer和panic配合
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="defer和panic配合">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#panic" class="md-nav__link">
-    <span class="md-ellipsis">
-      panic 不被捕获的情况
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#panic_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      panic 被捕获的情况
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deferpanic_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      defer中有panic
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="defer中有panic">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#deferpanicrecover" class="md-nav__link">
-    <span class="md-ellipsis">
-      defer中有panic，但是不recover
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#panic_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      嵌套 panic 测试题
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deferpanicrecover_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      defer中有panic，进行recover
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recover" class="md-nav__link">
-    <span class="md-ellipsis">
-      recover 的作用
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1590,15 +1385,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#recover" class="md-nav__link">
-    <span class="md-ellipsis">
-      recover 的作用
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2228,59 +2014,6 @@ return关键字不是代表完整的“return”过程，而只是return的一�
 </span><span id="__span-12-24"><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;func1 panic&quot;</span><span class="p">)</span>
 </span><span id="__span-12-25"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
-<h2 id="recover">recover 的作用<a class="headerlink" href="#recover" title="Permanent link">&para;</a></h2>
-<p>recover 把当前执行的 panic 的 recovered 字段置为 true。
-<div class="language-go highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><span class="c1">// recover_panic.go</span>
-</span><span id="__span-13-2"><span class="c1">// 展示recover的作用</span>
-</span><span id="__span-13-3">
-</span><span id="__span-13-4"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
-</span><span id="__span-13-5">
-</span><span id="__span-13-6"><span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
-</span><span id="__span-13-7">
-</span><span id="__span-13-8"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-13-9"><span class="w">    </span><span class="nx">A</span><span class="p">()</span>
-</span><span id="__span-13-10"><span class="p">}</span>
-</span><span id="__span-13-11">
-</span><span id="__span-13-12"><span class="kd">func</span><span class="w"> </span><span class="nx">A</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-13-13"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">A1</span><span class="p">()</span>
-</span><span id="__span-13-14"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">A2</span><span class="p">()</span>
-</span><span id="__span-13-15"><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;panicA&quot;</span><span class="p">)</span>
-</span><span id="__span-13-16"><span class="p">}</span>
-</span><span id="__span-13-17">
-</span><span id="__span-13-18"><span class="kd">func</span><span class="w"> </span><span class="nx">A1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-13-19"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;A1&quot;</span><span class="p">)</span>
-</span><span id="__span-13-20"><span class="p">}</span>
-</span><span id="__span-13-21">
-</span><span id="__span-13-22"><span class="kd">func</span><span class="w"> </span><span class="nx">A2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-13-23"><span class="w">    </span><span class="nx">p</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">recover</span><span class="p">()</span>
-</span><span id="__span-13-24"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;p: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">)</span>
-</span><span id="__span-13-25"><span class="p">}</span>
-</span></code></pre></div></td></tr></table></div>
-当执行到A的panicA时，g的defer链表挂着A1，A2，panic链表挂上panicA，然后开始执行defer，先执行A2，recover把当前的panicA设置为recovered，继续往下执行，当每个defer执行完了以后，都会检查当前正在执行的panic是否被恢复了，如果已经recovered，就把他从链表中移除。</p>
 
 
 

@@ -57,6 +57,7 @@ nav:
     - 堆: 'golang/heap.md'
     - GMP模型: 'golang/GMP.md'
     - defer: 'golang/defer/defer.md'
+    - 闭包: 'golang/closure/closure.md'
   - 'Monkey解释器':
     - 词法解析目标: 'monkey解释器/scanner.md'
     - 词法解析器roadmap: 'monkey解释器/task.md'
