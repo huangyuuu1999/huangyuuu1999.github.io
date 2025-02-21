@@ -1162,6 +1162,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="无持久化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      实际操作案例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1175,7 +1190,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       其他配置
     </span>
@@ -1198,7 +1213,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       混合持久化
     </span>
@@ -1339,6 +1354,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="无持久化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      实际操作案例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1352,7 +1382,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       其他配置
     </span>
@@ -1375,7 +1405,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       混合持久化
     </span>
@@ -1408,6 +1438,145 @@
 save 全部注释掉。
 这样的策略就是不做持久化，redis进程退出以后，数据直接丢失。
 这样的模式，就是只把redis当做缓存来使用，能够容忍数据丢失的损失的时候才会用。</p>
+<h3 id="_2">实际操作案例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p><div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="c1"># redis.conf 7.0.9 配置文件</span>
+</span><span id="__span-0-2"><span class="c1">############### SNAPSHOOTTING #################</span>
+</span><span id="__span-0-3"><span class="n">save</span> <span class="s2">&quot;&quot;</span> <span class="c1"># 表示不启用rdb持久化</span>
+</span><span id="__span-0-4"><span class="c1">############### SNAPSHOOTTING #################</span>
+</span><span id="__span-0-5"><span class="n">appendonly</span> <span class="n">no</span> <span class="c1"># 表示不启用aof持久化</span>
+</span></code></pre></div></td></tr></table></div>
+服务端启动redis-server
+<div class="language-shell highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1">$<span class="w"> </span>./redis-server<span class="w"> </span>../redis.conf
+</span><span id="__span-1-2"><span class="m">21970</span>:C<span class="w"> </span><span class="m">21</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">2025</span><span class="w"> </span><span class="m">19</span>:39:46.401<span class="w"> </span><span class="c1"># oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span>
+</span><span id="__span-1-3"><span class="m">21970</span>:C<span class="w"> </span><span class="m">21</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">2025</span><span class="w"> </span><span class="m">19</span>:39:46.401<span class="w"> </span><span class="c1"># Redis version=7.0.9, bits=64, commit=00000000, modified=0, pid=21970, just started</span>
+</span><span id="__span-1-4"><span class="m">21970</span>:C<span class="w"> </span><span class="m">21</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">2025</span><span class="w"> </span><span class="m">19</span>:39:46.401<span class="w"> </span><span class="c1"># Configuration loaded</span>
+</span><span id="__span-1-5"><span class="m">21970</span>:M<span class="w"> </span><span class="m">21</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">2025</span><span class="w"> </span><span class="m">19</span>:39:46.401<span class="w"> </span>*<span class="w"> </span>Increased<span class="w"> </span>maximum<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>open<span class="w"> </span>files<span class="w"> </span>to<span class="w"> </span><span class="m">10032</span><span class="w"> </span><span class="o">(</span>it<span class="w"> </span>was<span class="w"> </span>originally<span class="w"> </span><span class="nb">set</span><span class="w"> </span>to<span class="w"> </span><span class="m">1024</span><span class="o">)</span>.
+</span><span id="__span-1-6"><span class="m">21970</span>:M<span class="w"> </span><span class="m">21</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">2025</span><span class="w"> </span><span class="m">19</span>:39:46.401<span class="w"> </span>*<span class="w"> </span>monotonic<span class="w"> </span>clock:<span class="w"> </span>POSIX<span class="w"> </span>clock_gettime
+</span><span id="__span-1-7"><span class="w">                </span>_._
+</span><span id="__span-1-8"><span class="w">           </span>_.-<span class="sb">``</span>__<span class="w"> </span><span class="s1">&#39;&#39;</span>-._
+</span><span id="__span-1-9"><span class="w">      </span>_.-<span class="sb">``</span><span class="w">    </span><span class="sb">`</span>.<span class="w">  </span><span class="sb">`</span>_.<span class="w">  </span><span class="s1">&#39;&#39;</span>-._<span class="w">           </span>Redis<span class="w"> </span><span class="m">7</span>.0.9<span class="w"> </span><span class="o">(</span><span class="m">00000000</span>/0<span class="o">)</span><span class="w"> </span><span class="m">64</span><span class="w"> </span>bit
+</span><span id="__span-1-10"><span class="w">  </span>.-<span class="sb">``</span><span class="w"> </span>.-<span class="sb">```</span>.<span class="w">  </span><span class="sb">```</span><span class="se">\/</span><span class="w">    </span>_.,_<span class="w"> </span><span class="s1">&#39;&#39;</span>-._
+</span><span id="__span-1-11"><span class="w"> </span><span class="o">(</span><span class="w">    </span><span class="s1">&#39;      ,       .-`  | `,    )     Running in standalone mode</span>
+</span><span id="__span-1-12"><span class="s1"> |`-._`-...-` __...-.``-._|&#39;</span><span class="sb">`</span><span class="w"> </span>_.-<span class="s1">&#39;|     Port: 6379</span>
+</span><span id="__span-1-13"><span class="s1"> |    `-._   `._    /     _.-&#39;</span><span class="w">    </span><span class="p">|</span><span class="w">     </span>PID:<span class="w"> </span><span class="m">21970</span>
+</span><span id="__span-1-14"><span class="w">  </span><span class="sb">`</span>-._<span class="w">    </span><span class="sb">`</span>-._<span class="w">  </span><span class="sb">`</span>-./<span class="w">  </span>_.-<span class="s1">&#39;    _.-&#39;</span>
+</span><span id="__span-1-15"><span class="w"> </span><span class="p">|</span><span class="sb">`</span>-._<span class="sb">`</span>-._<span class="w">    </span><span class="sb">`</span>-.__.-<span class="s1">&#39;    _.-&#39;</span>_.-<span class="s1">&#39;|</span>
+</span><span id="__span-1-16"><span class="s1"> |    `-._`-._        _.-&#39;</span>_.-<span class="s1">&#39;    |           https://redis.io</span>
+</span><span id="__span-1-17"><span class="s1">  `-._    `-._`-.__.-&#39;</span>_.-<span class="s1">&#39;    _.-&#39;</span>
+</span><span id="__span-1-18"><span class="w"> </span><span class="p">|</span><span class="sb">`</span>-._<span class="sb">`</span>-._<span class="w">    </span><span class="sb">`</span>-.__.-<span class="s1">&#39;    _.-&#39;</span>_.-<span class="s1">&#39;|</span>
+</span><span id="__span-1-19"><span class="s1"> |    `-._`-._        _.-&#39;</span>_.-<span class="s1">&#39;    |</span>
+</span><span id="__span-1-20"><span class="s1">  `-._    `-._`-.__.-&#39;</span>_.-<span class="s1">&#39;    _.-&#39;</span>
+</span><span id="__span-1-21"><span class="w">      </span><span class="sb">`</span>-._<span class="w">    </span><span class="sb">`</span>-.__.-<span class="s1">&#39;    _.-&#39;</span>
+</span><span id="__span-1-22"><span class="w">          </span><span class="sb">`</span>-._<span class="w">        </span>_.-<span class="s1">&#39;</span>
+</span><span id="__span-1-23"><span class="s1">              `-.__.-&#39;</span>
+</span><span id="__span-1-24">
+</span><span id="__span-1-25"><span class="m">21970</span>:M<span class="w"> </span><span class="m">21</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">2025</span><span class="w"> </span><span class="m">19</span>:39:46.403<span class="w"> </span><span class="c1"># Server initialized</span>
+</span><span id="__span-1-26"><span class="m">21970</span>:M<span class="w"> </span><span class="m">21</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">2025</span><span class="w"> </span><span class="m">19</span>:39:46.403<span class="w"> </span><span class="c1"># WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. To fix this issue add &#39;vm.overcommit_memory = 1&#39; to /etc/sysctl.conf and then reboot or run the command &#39;sysctl vm.overcommit_memory=1&#39; for this to take effect.</span>
+</span><span id="__span-1-27"><span class="m">21970</span>:M<span class="w"> </span><span class="m">21</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">2025</span><span class="w"> </span><span class="m">19</span>:39:46.403<span class="w"> </span>*<span class="w"> </span>Loading<span class="w"> </span>RDB<span class="w"> </span>produced<span class="w"> </span>by<span class="w"> </span>version<span class="w"> </span><span class="m">7</span>.0.9
+</span><span id="__span-1-28"><span class="m">21970</span>:M<span class="w"> </span><span class="m">21</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">2025</span><span class="w"> </span><span class="m">19</span>:39:46.403<span class="w"> </span>*<span class="w"> </span>RDB<span class="w"> </span>age<span class="w"> </span><span class="m">161089</span><span class="w"> </span>seconds
+</span><span id="__span-1-29"><span class="m">21970</span>:M<span class="w"> </span><span class="m">21</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">2025</span><span class="w"> </span><span class="m">19</span>:39:46.403<span class="w"> </span>*<span class="w"> </span>RDB<span class="w"> </span>memory<span class="w"> </span>usage<span class="w"> </span>when<span class="w"> </span>created<span class="w"> </span><span class="m">0</span>.95<span class="w"> </span>Mb
+</span><span id="__span-1-30"><span class="m">21970</span>:M<span class="w"> </span><span class="m">21</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">2025</span><span class="w"> </span><span class="m">19</span>:39:46.403<span class="w"> </span>*<span class="w"> </span>Done<span class="w"> </span>loading<span class="w"> </span>RDB,<span class="w"> </span>keys<span class="w"> </span>loaded:<span class="w"> </span><span class="m">2</span>,<span class="w"> </span>keys<span class="w"> </span>expired:<span class="w"> </span><span class="m">0</span>.
+</span><span id="__span-1-31"><span class="m">21970</span>:M<span class="w"> </span><span class="m">21</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">2025</span><span class="w"> </span><span class="m">19</span>:39:46.403<span class="w"> </span>*<span class="w"> </span>DB<span class="w"> </span>loaded<span class="w"> </span>from<span class="w"> </span>disk:<span class="w"> </span><span class="m">0</span>.001<span class="w"> </span>seconds
+</span><span id="__span-1-32"><span class="m">21970</span>:M<span class="w"> </span><span class="m">21</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">2025</span><span class="w"> </span><span class="m">19</span>:39:46.403<span class="w"> </span>*<span class="w"> </span>Ready<span class="w"> </span>to<span class="w"> </span>accept<span class="w"> </span>connections
+</span></code></pre></div></td></tr></table></div>
+redis客户端
+<div class="language-shell highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1">$<span class="w"> </span>./redis-cli
+</span><span id="__span-2-2"><span class="m">127</span>.0.0.1:6379&gt;<span class="w"> </span>get<span class="w"> </span>name
+</span><span id="__span-2-3"><span class="o">(</span>nil<span class="o">)</span>
+</span><span id="__span-2-4"><span class="m">127</span>.0.0.1:6379&gt;<span class="w"> </span>lrange<span class="w"> </span>task<span class="w"> </span><span class="m">0</span><span class="w"> </span>-1
+</span><span id="__span-2-5"><span class="o">(</span>empty<span class="w"> </span>array<span class="o">)</span>
+</span><span id="__span-2-6"><span class="m">127</span>.0.0.1:6379&gt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>name<span class="w"> </span>akatako
+</span><span id="__span-2-7">OK
+</span><span id="__span-2-8"><span class="m">127</span>.0.0.1:6379&gt;<span class="w"> </span>get<span class="w"> </span>name
+</span><span id="__span-2-9"><span class="s2">&quot;akatako&quot;</span>
+</span><span id="__span-2-10"><span class="m">127</span>.0.0.1:6379&gt;<span class="w"> </span>lpush<span class="w"> </span>task<span class="w"> </span>c#
+</span><span id="__span-2-11"><span class="o">(</span>integer<span class="o">)</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-2-12"><span class="m">127</span>.0.0.1:6379&gt;<span class="w"> </span>lpush<span class="w"> </span>java
+</span><span id="__span-2-13"><span class="o">(</span>error<span class="o">)</span><span class="w"> </span>ERR<span class="w"> </span>wrong<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>arguments<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;lpush&#39;</span><span class="w"> </span><span class="nb">command</span>
+</span><span id="__span-2-14"><span class="m">127</span>.0.0.1:6379&gt;<span class="w"> </span>lpush<span class="w"> </span>task<span class="w"> </span>java
+</span><span id="__span-2-15"><span class="o">(</span>integer<span class="o">)</span><span class="w"> </span><span class="m">2</span>
+</span><span id="__span-2-16"><span class="m">127</span>.0.0.1:6379&gt;<span class="w"> </span>lrange<span class="w"> </span>task<span class="w"> </span><span class="m">0</span><span class="w"> </span>-1
+</span><span id="__span-2-17"><span class="m">1</span><span class="o">)</span><span class="w"> </span><span class="s2">&quot;java&quot;</span>
+</span><span id="__span-2-18"><span class="m">2</span><span class="o">)</span><span class="w"> </span><span class="s2">&quot;c#&quot;</span>
+</span><span id="__span-2-19"><span class="m">127</span>.0.0.1:6379&gt;
+</span></code></pre></div></td></tr></table></div>
+保存一些值，现在把redis直接关闭，直接杀进程。
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1">$ ps -ef |grep redis
+</span><span id="__span-3-2">xx+   21995     554  0 19:44 pts/0    00:00:00 src/redis-server 127.0.0.1:6379
+</span><span id="__span-3-3">xx+   21999    8784  0 19:44 pts/6    00:00:00 ./redis-cli
+</span><span id="__span-3-4">xx+   22090   22016  0 19:46 pts/7    00:00:00 grep --color=auto redis
+</span><span id="__span-3-5">~$ ps -ef |grep redis
+</span><span id="__span-3-6">xx+   21999    8784  0 19:44 pts/6    00:00:00 ./redis-cli
+</span><span id="__span-3-7">xx+   22092   22016  0 19:47 pts/7    00:00:00 grep --color=auto redis
+</span></code></pre></div></td></tr></table></div>
+重新启动redis服务，发现客户端已经查不到了。
+<div class="language-shell highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><span class="m">127</span>.0.0.1:6379&gt;<span class="w"> </span>get<span class="w"> </span>name
+</span><span id="__span-4-2"><span class="o">(</span>nil<span class="o">)</span>
+</span><span id="__span-4-3"><span class="m">127</span>.0.0.1:6379&gt;<span class="w"> </span>lrange<span class="w"> </span>task<span class="w"> </span><span class="m">0</span><span class="w"> </span>-1
+</span><span id="__span-4-4"><span class="o">(</span>empty<span class="w"> </span>array<span class="o">)</span>
+</span></code></pre></div></td></tr></table></div></p>
 <h2 id="rdb">RDB持久化<a class="headerlink" href="#rdb" title="Permanent link">&para;</a></h2>
 <p><code>rdb(redis database)</code>，是最早设计的持久化方案，方式是快照 <code>snapshoot</code>。</p>
 <p>把redis内存中保存的数据，经过快照，以二进制的形式保存下来，文件就是rdb文件。</p>
@@ -1430,24 +1599,24 @@ save 全部注释掉。
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="c1">################################ SNAPSHOTTING  #################################</span>
-</span><span id="__span-0-2"><span class="c1"># Save the DB on disk:</span>
-</span><span id="__span-0-3"><span class="c1">#   save &lt;seconds&gt; &lt;changes&gt;</span>
-</span><span id="__span-0-4"><span class="c1">#   after 900 sec (15 min) if at least 1 key changed</span>
-</span><span id="__span-0-5"><span class="c1">#   after 300 sec (5 min) if at least 10 keys changed</span>
-</span><span id="__span-0-6"><span class="c1">#   after 60 sec if at least 10000 keys changed</span>
-</span><span id="__span-0-7"><span class="c1">#</span>
-</span><span id="__span-0-8"><span class="c1">#   Note: you can disable saving at all commenting all the &quot;save&quot; lines.</span>
-</span><span id="__span-0-9">
-</span><span id="__span-0-10"><span class="n">save</span> <span class="mi">900</span> <span class="mi">1</span>
-</span><span id="__span-0-11"><span class="n">save</span> <span class="mi">300</span> <span class="mi">10</span>
-</span><span id="__span-0-12">
-</span><span id="__span-0-13"><span class="c1"># The filename where to dump the DB</span>
-</span><span id="__span-0-14"><span class="n">dbfilename</span> <span class="n">dump</span><span class="o">.</span><span class="n">rdb</span>
-</span><span id="__span-0-15">
-</span><span id="__span-0-16"><span class="c1"># For default save/load DB in/from the working directory</span>
-</span><span id="__span-0-17"><span class="c1"># Note that you must specify a directory not a file name.</span>
-</span><span id="__span-0-18"><span class="nb">dir</span> <span class="o">./</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><span class="c1">################################ SNAPSHOTTING  #################################</span>
+</span><span id="__span-5-2"><span class="c1"># Save the DB on disk:</span>
+</span><span id="__span-5-3"><span class="c1">#   save &lt;seconds&gt; &lt;changes&gt;</span>
+</span><span id="__span-5-4"><span class="c1">#   after 900 sec (15 min) if at least 1 key changed</span>
+</span><span id="__span-5-5"><span class="c1">#   after 300 sec (5 min) if at least 10 keys changed</span>
+</span><span id="__span-5-6"><span class="c1">#   after 60 sec if at least 10000 keys changed</span>
+</span><span id="__span-5-7"><span class="c1">#</span>
+</span><span id="__span-5-8"><span class="c1">#   Note: you can disable saving at all commenting all the &quot;save&quot; lines.</span>
+</span><span id="__span-5-9">
+</span><span id="__span-5-10"><span class="n">save</span> <span class="mi">900</span> <span class="mi">1</span>
+</span><span id="__span-5-11"><span class="n">save</span> <span class="mi">300</span> <span class="mi">10</span>
+</span><span id="__span-5-12">
+</span><span id="__span-5-13"><span class="c1"># The filename where to dump the DB</span>
+</span><span id="__span-5-14"><span class="n">dbfilename</span> <span class="n">dump</span><span class="o">.</span><span class="n">rdb</span>
+</span><span id="__span-5-15">
+</span><span id="__span-5-16"><span class="c1"># For default save/load DB in/from the working directory</span>
+</span><span id="__span-5-17"><span class="c1"># Note that you must specify a directory not a file name.</span>
+</span><span id="__span-5-18"><span class="nb">dir</span> <span class="o">./</span>
 </span></code></pre></div></td></tr></table></div>
 rdb的可以在主线程当中进行，对应的函数叫做save。但是这个备份的行为耗时很多，所以不能太过于频繁地执行，后来想了新的办法，fork出子进程，在子进程当中进行这个备份，对应的函数是bgsave，这样不会阻碍主线程工作（接受请求，对外提供服务）。</p>
 <p>rdb不可能做到每时每刻都更新，所以，假设有一个场景，前面的15min满足了备份的请求，现在开始进行rdb快照，快照的期间，又来了一些新的请求，而这时候redis服务故障停止了，此时获得了 dump.rdb 的确保存了之前保存的一些信息，但是在这段时间内的新请求带来的变化，就丢失了。</p>
@@ -1456,7 +1625,7 @@ rdb的可以在主线程当中进行，对应的函数叫做save。但是这个�
 <blockquote>
 <p>By default Redis asynchronously dumps the dataset on disk. This mode is good enough in many applications, but an issue with the Redis process or a power outage may result into a few minutes of writes lost (depending on the configured save points). <br> 默认情况下，Redis 会异步地将数据集转储到磁盘。这种模式在许多应用程序中已经足够好，但如果 Redis 进程出现问题或发生停电，可能会导致几分钟内的写入数据丢失（具体取决于配置的保存点）。</p>
 </blockquote>
-<h3 id="_2">其他配置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_3">其他配置<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>如果在写rdb文件的时候出现了错误，可以设置为立刻停止</p>
 <p><code>stop-writes-on-bgsave-error yes</code></p>
 <h2 id="aof">AOF持久化<a class="headerlink" href="#aof" title="Permanent link">&para;</a></h2>
@@ -1465,7 +1634,7 @@ rdb的可以在主线程当中进行，对应的函数叫做save。但是这个�
 <p>注意写aof文件并不是每次都写到文件中，因为每一次都进行磁盘读取浪费时间，而是维护一个缓冲区，攒一批写一下（内核系统调用有一个最小磁盘单元，貌似是4096B？总之攒一批一起写是最划算的）。</p>
 <p>aof方案，在经过一段时间之后，aof文件就会变得很大。需要解决这个问题，可以把aof文件重写一下，也就是精简里面的内容，比如有好多个incr，就可以合并成为一条set，诸如此类，把aof文件占用的空间变小。</p>
 <p>aof文件的位置和名称也是可以配置的。</p>
-<h2 id="_3">混合持久化<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">混合持久化<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 
 
 
