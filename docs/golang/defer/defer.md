@@ -183,6 +183,60 @@ func wrapper2() (ans int) { // 能够有力证明 defer 就是在 return语句�
 }
 ```
 
+## 有参数的 defer
+前面写的defer都是没有参数的，defer可以有参数。
+```go
+// defer_arg.go
+// 演示defer的参数
+package main
+
+import "fmt"
+
+
+func main() {
+	test()
+}
+
+func test() int {
+	defer func(arg int) {
+		fmt.Printf("arg: %v\n", arg)
+	}(42) // defer函数可以有参数
+	defer fmt.Println(1)
+	return 0
+}
+```
+
+### 函数返回值 作为 defer 参数
+defer 的参数是在定义的时候被立即计算的，而不是等到运行defer的时候再算。
+这个算完的结果会保存起来，在最后触发defer的时候告诉defer参数在哪里。
+```go
+// defer_arg.go
+// 演示函数返回值 作为 defer 的参数
+package main
+
+import "fmt"
+
+
+func main() {
+	test2()
+}
+
+func compute(a, b int) int {
+	return a + b
+}
+
+func test2() {
+	a, b := 1, 2
+	defer func(x int) {
+		fmt.Printf("x: %v\n", x)
+	}(compute(a, b)) // defer的参数也可以是函数调用的结果
+	a, b = 3, 4
+	panic("wrong")
+}
+// x: 3
+// panic: wrong
+```
+
 ## defer和panic配合
 defer能执行，要么是return已经执行了。要么就是发生了panic。
 

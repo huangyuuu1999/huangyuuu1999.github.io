@@ -811,6 +811,30 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#defer_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      有参数的 defer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="有参数的 defer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defer_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数返回值 作为 defer 参数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#deferpanic" class="md-nav__link">
     <span class="md-ellipsis">
       defer和panic配合
@@ -1516,6 +1540,30 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#defer_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      有参数的 defer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="有参数的 defer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defer_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数返回值 作为 defer 参数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#deferpanic" class="md-nav__link">
     <span class="md-ellipsis">
       defer和panic配合
@@ -1921,6 +1969,97 @@ return关键字不是代表完整的“return”过程，而只是return的一�
 </span><span id="__span-5-35"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ans</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span>
 </span><span id="__span-5-36"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div></p>
+<h2 id="defer_6">有参数的 defer<a class="headerlink" href="#defer_6" title="Permanent link">&para;</a></h2>
+<p>前面写的defer都是没有参数的，defer可以有参数。
+<div class="language-go highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><span class="c1">// defer_arg.go</span>
+</span><span id="__span-6-2"><span class="c1">// 演示defer的参数</span>
+</span><span id="__span-6-3"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+</span><span id="__span-6-4">
+</span><span id="__span-6-5"><span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
+</span><span id="__span-6-6">
+</span><span id="__span-6-7">
+</span><span id="__span-6-8"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-9"><span class="w">    </span><span class="nx">test</span><span class="p">()</span>
+</span><span id="__span-6-10"><span class="p">}</span>
+</span><span id="__span-6-11">
+</span><span id="__span-6-12"><span class="kd">func</span><span class="w"> </span><span class="nx">test</span><span class="p">()</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-13"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">arg</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-14"><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;arg: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">arg</span><span class="p">)</span>
+</span><span id="__span-6-15"><span class="w">    </span><span class="p">}(</span><span class="mi">42</span><span class="p">)</span><span class="w"> </span><span class="c1">// defer函数可以有参数</span>
+</span><span id="__span-6-16"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-6-17"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-6-18"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div></p>
+<h3 id="defer_7">函数返回值 作为 defer 参数<a class="headerlink" href="#defer_7" title="Permanent link">&para;</a></h3>
+<p>defer 的参数是在定义的时候被立即计算的，而不是等到运行defer的时候再算。
+这个算完的结果会保存起来，在最后触发defer的时候告诉defer参数在哪里。
+<div class="language-go highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><span class="c1">// defer_arg.go</span>
+</span><span id="__span-7-2"><span class="c1">// 演示函数返回值 作为 defer 的参数</span>
+</span><span id="__span-7-3"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+</span><span id="__span-7-4">
+</span><span id="__span-7-5"><span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
+</span><span id="__span-7-6">
+</span><span id="__span-7-7">
+</span><span id="__span-7-8"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-9"><span class="w">    </span><span class="nx">test2</span><span class="p">()</span>
+</span><span id="__span-7-10"><span class="p">}</span>
+</span><span id="__span-7-11">
+</span><span id="__span-7-12"><span class="kd">func</span><span class="w"> </span><span class="nx">compute</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-13"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span>
+</span><span id="__span-7-14"><span class="p">}</span>
+</span><span id="__span-7-15">
+</span><span id="__span-7-16"><span class="kd">func</span><span class="w"> </span><span class="nx">test2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-17"><span class="w">    </span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+</span><span id="__span-7-18"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-19"><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;x: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="p">)</span>
+</span><span id="__span-7-20"><span class="w">    </span><span class="p">}(</span><span class="nx">compute</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">))</span><span class="w"> </span><span class="c1">// defer的参数也可以是函数调用的结果</span>
+</span><span id="__span-7-21"><span class="w">    </span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+</span><span id="__span-7-22"><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;wrong&quot;</span><span class="p">)</span>
+</span><span id="__span-7-23"><span class="p">}</span>
+</span><span id="__span-7-24"><span class="c1">// x: 3</span>
+</span><span id="__span-7-25"><span class="c1">// panic: wrong</span>
+</span></code></pre></div></td></tr></table></div></p>
 <h2 id="deferpanic">defer和panic配合<a class="headerlink" href="#deferpanic" title="Permanent link">&para;</a></h2>
 <p>defer能执行，要么是return已经执行了。要么就是发生了panic。</p>
 <p>发生panic时，遍历本协程的defer链表，一个个执行，如果遇到recover，就停止当前的panic，返回recover处继续往下执行。</p>
@@ -1947,27 +2086,27 @@ return关键字不是代表完整的“return”过程，而只是return的一�
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><span class="c1">// defer_panic.go</span>
-</span><span id="__span-6-2"><span class="c1">// panic导致defer链表执行，但是defer里面没有recover的情形</span>
-</span><span id="__span-6-3">
-</span><span id="__span-6-4"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
-</span><span id="__span-6-5">
-</span><span id="__span-6-6"><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-6-7"><span class="w">    </span><span class="s">&quot;fmt&quot;</span>
-</span><span id="__span-6-8"><span class="w">    </span><span class="s">&quot;unicode/utf8&quot;</span>
-</span><span id="__span-6-9"><span class="p">)</span>
-</span><span id="__span-6-10">
-</span><span id="__span-6-11">
-</span><span id="__span-6-12"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-13"><span class="w">    </span><span class="nx">panicFireDefer</span><span class="p">()</span>
-</span><span id="__span-6-14"><span class="p">}</span>
-</span><span id="__span-6-15">
-</span><span id="__span-6-16"><span class="kd">func</span><span class="w"> </span><span class="nx">panicFireDefer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-17"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">)</span>
-</span><span id="__span-6-18"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">utf8</span><span class="p">.</span><span class="nx">RuneCountInString</span><span class="p">(</span><span class="s">&quot;👍🏿&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">// 2</span>
-</span><span id="__span-6-19"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</span><span id="__span-6-20"><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;some problem happened T^T...&quot;</span><span class="p">)</span>
-</span><span id="__span-6-21"><span class="p">}</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><span class="c1">// defer_panic.go</span>
+</span><span id="__span-8-2"><span class="c1">// panic导致defer链表执行，但是defer里面没有recover的情形</span>
+</span><span id="__span-8-3">
+</span><span id="__span-8-4"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+</span><span id="__span-8-5">
+</span><span id="__span-8-6"><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-8-7"><span class="w">    </span><span class="s">&quot;fmt&quot;</span>
+</span><span id="__span-8-8"><span class="w">    </span><span class="s">&quot;unicode/utf8&quot;</span>
+</span><span id="__span-8-9"><span class="p">)</span>
+</span><span id="__span-8-10">
+</span><span id="__span-8-11">
+</span><span id="__span-8-12"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-13"><span class="w">    </span><span class="nx">panicFireDefer</span><span class="p">()</span>
+</span><span id="__span-8-14"><span class="p">}</span>
+</span><span id="__span-8-15">
+</span><span id="__span-8-16"><span class="kd">func</span><span class="w"> </span><span class="nx">panicFireDefer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-17"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">)</span>
+</span><span id="__span-8-18"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">utf8</span><span class="p">.</span><span class="nx">RuneCountInString</span><span class="p">(</span><span class="s">&quot;👍🏿&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">// 2</span>
+</span><span id="__span-8-19"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-8-20"><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;some problem happened T^T...&quot;</span><span class="p">)</span>
+</span><span id="__span-8-21"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 <h3 id="panic_1">panic 被捕获的情况<a class="headerlink" href="#panic_1" title="Permanent link">&para;</a></h3>
 <p>当panic触发defer，且defer中出现recover的时候，就会终止当前的panic，继续执行。</p>
@@ -1994,29 +2133,29 @@ return关键字不是代表完整的“return”过程，而只是return的一�
 <span class="normal">20</span>
 <span class="normal">21</span>
 <span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><span class="c1">// defer_panic_recover.go</span>
-</span><span id="__span-7-2"><span class="c1">// panic触发了defer，而defer中有recover</span>
-</span><span id="__span-7-3">
-</span><span id="__span-7-4"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
-</span><span id="__span-7-5">
-</span><span id="__span-7-6"><span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
-</span><span id="__span-7-7">
-</span><span id="__span-7-8"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-9"><span class="w">    </span><span class="nx">deferWithRecover</span><span class="p">()</span>
-</span><span id="__span-7-10"><span class="p">}</span>
-</span><span id="__span-7-11">
-</span><span id="__span-7-12"><span class="kd">func</span><span class="w"> </span><span class="nx">deferWithRecover</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-13"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-14"><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;尝试捕获panic&quot;</span><span class="p">)</span>
-</span><span id="__span-7-15"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">recover</span><span class="p">();</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-16"><span class="w">            </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;err: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
-</span><span id="__span-7-17"><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-7-18"><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;会继续执行吗？&quot;</span><span class="p">)</span>
-</span><span id="__span-7-19"><span class="w">    </span><span class="p">}()</span>
-</span><span id="__span-7-20"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;这个defer不捕捉panic&quot;</span><span class="p">)</span>
-</span><span id="__span-7-21"><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;出错了😇&quot;</span><span class="p">)</span>
-</span><span id="__span-7-22"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;这里不会执行&quot;</span><span class="p">)</span>
-</span><span id="__span-7-23"><span class="p">}</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><span class="c1">// defer_panic_recover.go</span>
+</span><span id="__span-9-2"><span class="c1">// panic触发了defer，而defer中有recover</span>
+</span><span id="__span-9-3">
+</span><span id="__span-9-4"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+</span><span id="__span-9-5">
+</span><span id="__span-9-6"><span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
+</span><span id="__span-9-7">
+</span><span id="__span-9-8"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-9"><span class="w">    </span><span class="nx">deferWithRecover</span><span class="p">()</span>
+</span><span id="__span-9-10"><span class="p">}</span>
+</span><span id="__span-9-11">
+</span><span id="__span-9-12"><span class="kd">func</span><span class="w"> </span><span class="nx">deferWithRecover</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-13"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-14"><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;尝试捕获panic&quot;</span><span class="p">)</span>
+</span><span id="__span-9-15"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">recover</span><span class="p">();</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-16"><span class="w">            </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;err: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+</span><span id="__span-9-17"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-9-18"><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;会继续执行吗？&quot;</span><span class="p">)</span>
+</span><span id="__span-9-19"><span class="w">    </span><span class="p">}()</span>
+</span><span id="__span-9-20"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;这个defer不捕捉panic&quot;</span><span class="p">)</span>
+</span><span id="__span-9-21"><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;出错了😇&quot;</span><span class="p">)</span>
+</span><span id="__span-9-22"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;这里不会执行&quot;</span><span class="p">)</span>
+</span><span id="__span-9-23"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 <h2 id="deferpanic_1">defer中有panic<a class="headerlink" href="#deferpanic_1" title="Permanent link">&para;</a></h2>
 <p>defer 的回调函数内部也可以写panic，那么panic会表现出什么行为？</p>
@@ -2030,16 +2169,16 @@ return关键字不是代表完整的“return”过程，而只是return的一�
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><span class="c1">// 伪代码，仅用于说明defer内部和g内部的成员</span>
-</span><span id="__span-8-2"><span class="kd">type</span><span class="w"> </span><span class="nx">g</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-3"><span class="w">    </span><span class="nx">_defer</span><span class="w"> </span><span class="c1">// deferlist defer链表</span>
-</span><span id="__span-8-4"><span class="w">    </span><span class="nx">_panic</span><span class="w"> </span><span class="c1">// paniclist panic链表</span>
-</span><span id="__span-8-5"><span class="p">}</span><span class="w"> </span>
-</span><span id="__span-8-6">
-</span><span id="__span-8-7"><span class="kd">type</span><span class="w"> </span><span class="nx">Defer</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-8"><span class="w">    </span><span class="nx">started</span><span class="w"> </span><span class="kt">bool</span>
-</span><span id="__span-8-9"><span class="w">    </span><span class="nx">_panic</span><span class="w"> </span><span class="c1">// panic 表示谁启动了这个 defer</span>
-</span><span id="__span-8-10"><span class="p">}</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><span class="c1">// 伪代码，仅用于说明defer内部和g内部的成员</span>
+</span><span id="__span-10-2"><span class="kd">type</span><span class="w"> </span><span class="nx">g</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-3"><span class="w">    </span><span class="nx">_defer</span><span class="w"> </span><span class="c1">// deferlist defer链表</span>
+</span><span id="__span-10-4"><span class="w">    </span><span class="nx">_panic</span><span class="w"> </span><span class="c1">// paniclist panic链表</span>
+</span><span id="__span-10-5"><span class="p">}</span><span class="w"> </span>
+</span><span id="__span-10-6">
+</span><span id="__span-10-7"><span class="kd">type</span><span class="w"> </span><span class="nx">Defer</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-8"><span class="w">    </span><span class="nx">started</span><span class="w"> </span><span class="kt">bool</span>
+</span><span id="__span-10-9"><span class="w">    </span><span class="nx">_panic</span><span class="w"> </span><span class="c1">// panic 表示谁启动了这个 defer</span>
+</span><span id="__span-10-10"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 当发生panic的时候，把panic链表的头上加上当前panic，然后就开始执行defer链表，注意后注册的defer越靠近链表头，开始执行一个defer的时候，把这个defer的started设置为true，_panic设置为当前的panic。</p>
 <p>如果现在defer中又出现了panic，那么就在panic链表的头上再插入一个新的panic节点，然后再从defer链表的头节点开始执行，当发现已经started并且_panic不是自己的时候，【这个_panic就标记为结束？】就继续往后执行下一个defer节点。</p>
@@ -2081,43 +2220,43 @@ return关键字不是代表完整的“return”过程，而只是return的一�
 <span class="normal">34</span>
 <span class="normal">35</span>
 <span class="normal">36</span>
-<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><span class="c1">// panic_in_defer.go</span>
-</span><span id="__span-9-2"><span class="c1">// 如果发生了panic，触发defer，而defer里面又有panic 会怎么样呢？</span>
-</span><span id="__span-9-3">
-</span><span id="__span-9-4"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
-</span><span id="__span-9-5">
-</span><span id="__span-9-6"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-7"><span class="w">    </span><span class="nx">func1</span><span class="p">()</span>
-</span><span id="__span-9-8"><span class="p">}</span>
-</span><span id="__span-9-9">
-</span><span id="__span-9-10"><span class="kd">func</span><span class="w"> </span><span class="nx">func1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-11"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-12"><span class="w">        </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;panic in defer1&quot;</span><span class="p">)</span>
-</span><span id="__span-9-13"><span class="w">    </span><span class="p">}()</span>
-</span><span id="__span-9-14"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-15"><span class="w">        </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;panic in defer2&quot;</span><span class="p">)</span>
-</span><span id="__span-9-16"><span class="w">    </span><span class="p">}()</span>
-</span><span id="__span-9-17"><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;func1 panic&quot;</span><span class="p">)</span>
-</span><span id="__span-9-18"><span class="p">}</span>
-</span><span id="__span-9-19">
-</span><span id="__span-9-20"><span class="c1">// panic: func1 panic</span>
-</span><span id="__span-9-21"><span class="c1">//         panic: panic in defer2</span>
-</span><span id="__span-9-22"><span class="c1">//         panic: panic in defer1</span>
-</span><span id="__span-9-23">
-</span><span id="__span-9-24"><span class="c1">// goroutine 1 [running]:</span>
-</span><span id="__span-9-25"><span class="c1">// main.func1.func1()</span>
-</span><span id="__span-9-26"><span class="c1">//         C:/Users/Administrator/Desktop/codes/defer/panic_in_defer.go:12 +0x25</span>
-</span><span id="__span-9-27"><span class="c1">// panic({0xe7f5e0?, 0xea8fb8?})</span>
-</span><span id="__span-9-28"><span class="c1">//         D:/golang/src/runtime/panic.go:785 +0x132</span>
-</span><span id="__span-9-29"><span class="c1">// main.func1.func2()</span>
-</span><span id="__span-9-30"><span class="c1">//         C:/Users/Administrator/Desktop/codes/defer/panic_in_defer.go:15 +0x25</span>
-</span><span id="__span-9-31"><span class="c1">// panic({0xe7f5e0?, 0xea8f98?})</span>
-</span><span id="__span-9-32"><span class="c1">//         D:/golang/src/runtime/panic.go:785 +0x132</span>
-</span><span id="__span-9-33"><span class="c1">// main.func1()</span>
-</span><span id="__span-9-34"><span class="c1">//         C:/Users/Administrator/Desktop/codes/defer/panic_in_defer.go:17 +0x4e</span>
-</span><span id="__span-9-35"><span class="c1">// main.main()</span>
-</span><span id="__span-9-36"><span class="c1">//         C:/Users/Administrator/Desktop/codes/defer/panic_in_defer.go:7 +0xf</span>
-</span><span id="__span-9-37"><span class="c1">// exit status 2</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><span class="c1">// panic_in_defer.go</span>
+</span><span id="__span-11-2"><span class="c1">// 如果发生了panic，触发defer，而defer里面又有panic 会怎么样呢？</span>
+</span><span id="__span-11-3">
+</span><span id="__span-11-4"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+</span><span id="__span-11-5">
+</span><span id="__span-11-6"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-7"><span class="w">    </span><span class="nx">func1</span><span class="p">()</span>
+</span><span id="__span-11-8"><span class="p">}</span>
+</span><span id="__span-11-9">
+</span><span id="__span-11-10"><span class="kd">func</span><span class="w"> </span><span class="nx">func1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-11"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-12"><span class="w">        </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;panic in defer1&quot;</span><span class="p">)</span>
+</span><span id="__span-11-13"><span class="w">    </span><span class="p">}()</span>
+</span><span id="__span-11-14"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-15"><span class="w">        </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;panic in defer2&quot;</span><span class="p">)</span>
+</span><span id="__span-11-16"><span class="w">    </span><span class="p">}()</span>
+</span><span id="__span-11-17"><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;func1 panic&quot;</span><span class="p">)</span>
+</span><span id="__span-11-18"><span class="p">}</span>
+</span><span id="__span-11-19">
+</span><span id="__span-11-20"><span class="c1">// panic: func1 panic</span>
+</span><span id="__span-11-21"><span class="c1">//         panic: panic in defer2</span>
+</span><span id="__span-11-22"><span class="c1">//         panic: panic in defer1</span>
+</span><span id="__span-11-23">
+</span><span id="__span-11-24"><span class="c1">// goroutine 1 [running]:</span>
+</span><span id="__span-11-25"><span class="c1">// main.func1.func1()</span>
+</span><span id="__span-11-26"><span class="c1">//         C:/Users/Administrator/Desktop/codes/defer/panic_in_defer.go:12 +0x25</span>
+</span><span id="__span-11-27"><span class="c1">// panic({0xe7f5e0?, 0xea8fb8?})</span>
+</span><span id="__span-11-28"><span class="c1">//         D:/golang/src/runtime/panic.go:785 +0x132</span>
+</span><span id="__span-11-29"><span class="c1">// main.func1.func2()</span>
+</span><span id="__span-11-30"><span class="c1">//         C:/Users/Administrator/Desktop/codes/defer/panic_in_defer.go:15 +0x25</span>
+</span><span id="__span-11-31"><span class="c1">// panic({0xe7f5e0?, 0xea8f98?})</span>
+</span><span id="__span-11-32"><span class="c1">//         D:/golang/src/runtime/panic.go:785 +0x132</span>
+</span><span id="__span-11-33"><span class="c1">// main.func1()</span>
+</span><span id="__span-11-34"><span class="c1">//         C:/Users/Administrator/Desktop/codes/defer/panic_in_defer.go:17 +0x4e</span>
+</span><span id="__span-11-35"><span class="c1">// main.main()</span>
+</span><span id="__span-11-36"><span class="c1">//         C:/Users/Administrator/Desktop/codes/defer/panic_in_defer.go:7 +0xf</span>
+</span><span id="__span-11-37"><span class="c1">// exit status 2</span>
 </span></code></pre></div></td></tr></table></div>
 可以看到三个panic都打印出来了，并且是按照先后顺序打印的，这也是协程g的panic链表的从尾到头的打印顺序。</p>
 <h3 id="panic_2">嵌套 panic 测试题<a class="headerlink" href="#panic_2" title="Permanent link">&para;</a></h3>
@@ -2140,25 +2279,25 @@ return关键字不是代表完整的“return”过程，而只是return的一�
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-10-2"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// 1</span>
-</span><span id="__span-10-3"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//2</span>
-</span><span id="__span-10-4"><span class="w">        </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-10-5"><span class="w">            </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;panicA&quot;</span><span class="p">)</span>
-</span><span id="__span-10-6"><span class="w">            </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;E&quot;</span><span class="p">)</span>
-</span><span id="__span-10-7"><span class="w">        </span><span class="p">}()</span>
-</span><span id="__span-10-8"><span class="w">    </span><span class="p">}()</span>
-</span><span id="__span-10-9"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">)</span>
-</span><span id="__span-10-10"><span class="w">    </span><span class="nx">dangerOp</span><span class="p">()</span>
-</span><span id="__span-10-11"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;D&quot;</span><span class="p">)</span>
-</span><span id="__span-10-12"><span class="p">}</span>
-</span><span id="__span-10-13">
-</span><span id="__span-10-14"><span class="kd">func</span><span class="w"> </span><span class="nx">dangerOp</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-10-15"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">//3</span>
-</span><span id="__span-10-16"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1">//4</span>
-</span><span id="__span-10-17"><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;panicB&quot;</span><span class="p">)</span>
-</span><span id="__span-10-18"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</span><span id="__span-10-19"><span class="p">}</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-2"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// 1</span>
+</span><span id="__span-12-3"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//2</span>
+</span><span id="__span-12-4"><span class="w">        </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-5"><span class="w">            </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;panicA&quot;</span><span class="p">)</span>
+</span><span id="__span-12-6"><span class="w">            </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;E&quot;</span><span class="p">)</span>
+</span><span id="__span-12-7"><span class="w">        </span><span class="p">}()</span>
+</span><span id="__span-12-8"><span class="w">    </span><span class="p">}()</span>
+</span><span id="__span-12-9"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">)</span>
+</span><span id="__span-12-10"><span class="w">    </span><span class="nx">dangerOp</span><span class="p">()</span>
+</span><span id="__span-12-11"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;D&quot;</span><span class="p">)</span>
+</span><span id="__span-12-12"><span class="p">}</span>
+</span><span id="__span-12-13">
+</span><span id="__span-12-14"><span class="kd">func</span><span class="w"> </span><span class="nx">dangerOp</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-15"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">//3</span>
+</span><span id="__span-12-16"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1">//4</span>
+</span><span id="__span-12-17"><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;panicB&quot;</span><span class="p">)</span>
+</span><span id="__span-12-18"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-12-19"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 首先再main协程中注册了两个defer，然后打印出'C'，随后进入dangerOp函数内（注意还是本协程，没有开新的协程），再次注册了两个函数，注册的defer在代码中注释为 1，2，3，4。在defer链上的首尾顺序是 4321。然后panicB在main-g的panic链表挂上panicB，触发defer。输出2、1。
 然后执行defer2，立马panicA，在main-g的panic链的panicB前面挂上panicA，再去执行defer链。此时注意到defer2还在链上，且状态为started，但是_panic为panicB因为是panicB触发的他，那么就跳过这个defer，再去执行defer1了，注意此时也会标记panicA为done。到最后defer全部执行完了。就输出panic信息，顺序是panicB，panicA。</p>
@@ -2168,12 +2307,12 @@ return关键字不是代表完整的“return”过程，而只是return的一�
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1">C 
-</span><span id="__span-11-2">2 
-</span><span id="__span-11-3">1 
-</span><span id="__span-11-4">A 
-</span><span id="__span-11-5">panicB 
-</span><span id="__span-11-6">panicA
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1">C 
+</span><span id="__span-13-2">2 
+</span><span id="__span-13-3">1 
+</span><span id="__span-13-4">A 
+</span><span id="__span-13-5">panicB 
+</span><span id="__span-13-6">panicA
 </span></code></pre></div></td></tr></table></div></p>
 <h3 id="deferpanicrecover_1">defer中有panic，进行recover<a class="headerlink" href="#deferpanicrecover_1" title="Permanent link">&para;</a></h3>
 <p>捕捉到的是后面出现的panic。</p>
@@ -2202,31 +2341,31 @@ return关键字不是代表完整的“return”过程，而只是return的一�
 <span class="normal">22</span>
 <span class="normal">23</span>
 <span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><span class="c1">// panic_in_defer_recover.go</span>
-</span><span id="__span-12-2"><span class="c1">// defer中有panic，进行recover</span>
-</span><span id="__span-12-3">
-</span><span id="__span-12-4"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
-</span><span id="__span-12-5">
-</span><span id="__span-12-6"><span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
-</span><span id="__span-12-7">
-</span><span id="__span-12-8">
-</span><span id="__span-12-9"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-12-10"><span class="w">    </span><span class="nx">func2</span><span class="p">()</span><span class="w"> </span><span class="c1">// 捕捉到的是: panic in defer2</span>
-</span><span id="__span-12-11"><span class="p">}</span>
-</span><span id="__span-12-12">
-</span><span id="__span-12-13"><span class="kd">func</span><span class="w"> </span><span class="nx">func2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-12-14"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-12-15"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">recover</span><span class="p">();</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-12-16"><span class="w">            </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;捕捉到的是: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
-</span><span id="__span-12-17"><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-12-18"><span class="w">    </span><span class="p">}()</span>
-</span><span id="__span-12-19">
-</span><span id="__span-12-20"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-12-21"><span class="w">        </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;panic in defer2&quot;</span><span class="p">)</span>
-</span><span id="__span-12-22"><span class="w">    </span><span class="p">}()</span>
-</span><span id="__span-12-23">
-</span><span id="__span-12-24"><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;func1 panic&quot;</span><span class="p">)</span>
-</span><span id="__span-12-25"><span class="p">}</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><span class="c1">// panic_in_defer_recover.go</span>
+</span><span id="__span-14-2"><span class="c1">// defer中有panic，进行recover</span>
+</span><span id="__span-14-3">
+</span><span id="__span-14-4"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+</span><span id="__span-14-5">
+</span><span id="__span-14-6"><span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
+</span><span id="__span-14-7">
+</span><span id="__span-14-8">
+</span><span id="__span-14-9"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-10"><span class="w">    </span><span class="nx">func2</span><span class="p">()</span><span class="w"> </span><span class="c1">// 捕捉到的是: panic in defer2</span>
+</span><span id="__span-14-11"><span class="p">}</span>
+</span><span id="__span-14-12">
+</span><span id="__span-14-13"><span class="kd">func</span><span class="w"> </span><span class="nx">func2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-14"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-15"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">recover</span><span class="p">();</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-16"><span class="w">            </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;捕捉到的是: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+</span><span id="__span-14-17"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-14-18"><span class="w">    </span><span class="p">}()</span>
+</span><span id="__span-14-19">
+</span><span id="__span-14-20"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-21"><span class="w">        </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;panic in defer2&quot;</span><span class="p">)</span>
+</span><span id="__span-14-22"><span class="w">    </span><span class="p">}()</span>
+</span><span id="__span-14-23">
+</span><span id="__span-14-24"><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;func1 panic&quot;</span><span class="p">)</span>
+</span><span id="__span-14-25"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 <h2 id="recover">recover 的作用<a class="headerlink" href="#recover" title="Permanent link">&para;</a></h2>
 <p>recover 把当前执行的 panic 的 recovered 字段置为 true。
@@ -2254,31 +2393,31 @@ return关键字不是代表完整的“return”过程，而只是return的一�
 <span class="normal">22</span>
 <span class="normal">23</span>
 <span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><span class="c1">// recover_panic.go</span>
-</span><span id="__span-13-2"><span class="c1">// 展示recover的作用</span>
-</span><span id="__span-13-3">
-</span><span id="__span-13-4"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
-</span><span id="__span-13-5">
-</span><span id="__span-13-6"><span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
-</span><span id="__span-13-7">
-</span><span id="__span-13-8"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-13-9"><span class="w">    </span><span class="nx">A</span><span class="p">()</span>
-</span><span id="__span-13-10"><span class="p">}</span>
-</span><span id="__span-13-11">
-</span><span id="__span-13-12"><span class="kd">func</span><span class="w"> </span><span class="nx">A</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-13-13"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">A1</span><span class="p">()</span>
-</span><span id="__span-13-14"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">A2</span><span class="p">()</span>
-</span><span id="__span-13-15"><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;panicA&quot;</span><span class="p">)</span>
-</span><span id="__span-13-16"><span class="p">}</span>
-</span><span id="__span-13-17">
-</span><span id="__span-13-18"><span class="kd">func</span><span class="w"> </span><span class="nx">A1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-13-19"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;A1&quot;</span><span class="p">)</span>
-</span><span id="__span-13-20"><span class="p">}</span>
-</span><span id="__span-13-21">
-</span><span id="__span-13-22"><span class="kd">func</span><span class="w"> </span><span class="nx">A2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-13-23"><span class="w">    </span><span class="nx">p</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">recover</span><span class="p">()</span>
-</span><span id="__span-13-24"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;p: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">)</span>
-</span><span id="__span-13-25"><span class="p">}</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><span class="c1">// recover_panic.go</span>
+</span><span id="__span-15-2"><span class="c1">// 展示recover的作用</span>
+</span><span id="__span-15-3">
+</span><span id="__span-15-4"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+</span><span id="__span-15-5">
+</span><span id="__span-15-6"><span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
+</span><span id="__span-15-7">
+</span><span id="__span-15-8"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-9"><span class="w">    </span><span class="nx">A</span><span class="p">()</span>
+</span><span id="__span-15-10"><span class="p">}</span>
+</span><span id="__span-15-11">
+</span><span id="__span-15-12"><span class="kd">func</span><span class="w"> </span><span class="nx">A</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-13"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">A1</span><span class="p">()</span>
+</span><span id="__span-15-14"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">A2</span><span class="p">()</span>
+</span><span id="__span-15-15"><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;panicA&quot;</span><span class="p">)</span>
+</span><span id="__span-15-16"><span class="p">}</span>
+</span><span id="__span-15-17">
+</span><span id="__span-15-18"><span class="kd">func</span><span class="w"> </span><span class="nx">A1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-19"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;A1&quot;</span><span class="p">)</span>
+</span><span id="__span-15-20"><span class="p">}</span>
+</span><span id="__span-15-21">
+</span><span id="__span-15-22"><span class="kd">func</span><span class="w"> </span><span class="nx">A2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-23"><span class="w">    </span><span class="nx">p</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">recover</span><span class="p">()</span>
+</span><span id="__span-15-24"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;p: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">)</span>
+</span><span id="__span-15-25"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 当执行到A的panicA时，g的defer链表挂着A1，A2，panic链表挂上panicA，然后开始执行defer，先执行A2，recover把当前的panicA设置为recovered，继续往下执行，当每个defer执行完了以后，都会检查当前正在执行的panic是否被恢复了，如果已经recovered，就把他从链表中移除。</p>
 
