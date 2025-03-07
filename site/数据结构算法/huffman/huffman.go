@@ -114,6 +114,7 @@ func getEncodeDictionary(s string) (map[byte]string, map[string]byte) {
 		path = path[:len(path)-1]
 	}
 	dfs(root)
+	printDictionary(byteToCode, codeToByte)
 	return byteToCode, codeToByte
 }
 
