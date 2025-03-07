@@ -10,6 +10,7 @@ import (
 	"strings"
 )
 
+// bug maker👇🏻
 const placeholder byte = '#'
 
 type TreeNode struct {
@@ -71,10 +72,11 @@ func buildTreeFromHeap(th *TreeNodeHeap) *TreeNode {
 		return &root
 	}
 	node1, node2 := heap.Pop(th).(TreeNode), heap.Pop(th).(TreeNode)
-	if node1.freq > node2.freq {
+	if node1.freq > node2.freq || node1.freq == node2.freq && node1.val > node2.val {
 		node1, node2 = node2, node1
 	}
-	mergeNode := TreeNode{placeholder, node1.freq + node2.freq, &node1, &node2}
+	// mergeNode := TreeNode{placeholder, node1.freq + node2.freq, &node1, &node2}
+	mergeNode := TreeNode{min(node1.val, node2.val), node1.freq + node2.freq, &node1, &node2}
 	heap.Push(th, mergeNode)
 	return buildTreeFromHeap(th)
 }
@@ -238,7 +240,7 @@ func compressFile(srcPath, destPath string) {
 	if err != nil {
 		fmt.Println("无法获取文件信息:", err)
 		return
-	} else if info.Size() >= 10*1024*1024 {
+	} else if info.Size() >= 100*1024*1024 {
 		panic("文件过大")
 	}
 	data, err := os.ReadFile(srcPath)
@@ -320,8 +322,36 @@ func unCompressFile(srcPath, destPath string) {
 	os.WriteFile(destPath, unCompressData, 0644)
 }
 
-func main() {
+const remind string = `
+./ziptool zip filename target
+./ziptool unzip filename target`
 
-	compressFile("a.txt", "a.bin")
-	unCompressFile("a.bin", "a.copt.txt")
+func main() {
+	// test_txt()
+	// test_mp4()
+	args := os.Args
+	fmt.Printf("args: %v\n", args)
+	if len(args) < 4 {
+		fmt.Println("使用方式: ", remind)
+		return
+	}
+	action := args[1]
+	src, dest := args[2], args[3]
+	if action == "zip" {
+		compressFile(src, dest)
+	} else if action == "unzip" {
+		unCompressFile(src, dest)
+	} else {
+		fmt.Println("使用方式: ", remind)
+	}
+}
+
+func test_txt() {
+	compressFile("万历十五年.txt", "万历十五年.bin")
+	unCompressFile("万历十五年.bin", "万历十五年.copt.txt")
+}
+
+func test_mp4() { // 哈夫曼压缩 不适合压缩视频
+	compressFile("哪吒.mp4", "哪吒.compress")
+	unCompressFile("哪吒.compress", "哪吒2.mp4")
 }
