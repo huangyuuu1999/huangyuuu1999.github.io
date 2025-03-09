@@ -6,6 +6,7 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
+	"io"
 	"os"
 	"strings"
 )
@@ -65,6 +66,29 @@ func counter(s string, verbose bool) map[byte]int {
 	return m
 }
 
+// v2 从文件中 统计 词频表
+// 对字符串内容，以字节为单位统计频率，得到频率表
+func makefreqTable(filePath string) [256]int {
+	chunkSize := 4 * 1024 * 1024 // 4M
+	file, err := os.Open(filePath)
+	if err != nil {
+		panic(err.Error())
+	}
+	defer file.Close()
+	buffer := make([]byte, chunkSize)
+	freqTable := [256]int{}
+	for {
+		n, err := file.Read(buffer)
+		if err == io.EOF { // 读完了
+			break
+		}
+		for i := range n {
+			freqTable[buffer[i]]++
+		}
+	}
+	return freqTable
+}
+
 // 构建哈夫曼 编码树
 func buildTreeFromHeap(th *TreeNodeHeap) *TreeNode {
 	if len(*th) == 1 {
@@ -117,6 +141,43 @@ func getEncodeDictionary(s string) (map[byte]string, map[string]byte) {
 	}
 	dfs(root)
 	printDictionary(byteToCode, codeToByte)
+	return byteToCode, codeToByte
+}
+
+// v2 按词频表 构建哈夫曼树 并返回 编码字典
+func getEncodeDict(freqTable [256]int) (map[byte]string, map[string]byte) {
+	treeNodes := []TreeNode{}
+	for i, freq := range freqTable {
+		treeNodes = append(treeNodes, TreeNode{byte(i), freq, nil, nil})
+	}
+	t := TreeNodeHeap(treeNodes)
+	heap.Init(&t)
+	root := buildTreeFromHeap(&t)
+	path := []string{} // 保存 "0" "1", 后面再处理为位
+
+	byteToCode := map[byte]string{}
+	codeToByte := map[string]byte{}
+
+	var dfs func(*TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		if root.left == root.right {
+			code := strings.Join(path, "")
+			byteToCode[root.val] = code
+			codeToByte[code] = root.val
+			return
+		}
+		path = append(path, "0")
+		dfs(root.left)
+		path = path[:len(path)-1]
+
+		path = append(path, "1")
+		dfs(root.right)
+		path = path[:len(path)-1]
+	}
+	dfs(root)
 	return byteToCode, codeToByte
 }
 
