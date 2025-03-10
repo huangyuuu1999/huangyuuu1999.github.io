@@ -34,8 +34,8 @@ func Counter2(filePath string) [256]int {
 	bufferSize := 1024 * 1024 * 1
 
 	info, _ := os.Stat(filePath)
-	chanCnt := info.Size() / int64(bufferSize) + 1
-	
+	chanCnt := info.Size()/int64(bufferSize) + 1
+
 	jobs, results := make(chan []byte, chanCnt), make(chan [256]int, chanCnt)
 	var wg sync.WaitGroup
 
@@ -47,7 +47,6 @@ func Counter2(filePath string) [256]int {
 
 	reader := bufio.NewReader(file)
 
-	
 	buffer := make([]byte, bufferSize)
 
 	for {
@@ -56,9 +55,9 @@ func Counter2(filePath string) [256]int {
 			break
 		}
 		// 复制数据到新切片以避免被覆盖
-        chunk := make([]byte, n)
-        copy(chunk, buffer[:n])
-        jobs <- chunk // 发送正确的数据块
+		chunk := make([]byte, n)
+		copy(chunk, buffer[:n])
+		jobs <- chunk // 发送正确的数据块
 		wg.Add(1)
 	}
 	close(jobs)
