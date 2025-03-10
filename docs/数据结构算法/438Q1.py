@@ -1,3 +1,6 @@
+import bisect
+
+
 class Solution:
     def hasSameDigits(self, s: str) -> bool:
         while len(s) > 2:
@@ -11,3 +14,5 @@ class Solution:
 
 ans = Solution().hasSameDigits("3902")
 print(ans)
+
+bisect.bisect_left()

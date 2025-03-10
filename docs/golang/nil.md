@@ -15,4 +15,4 @@ func main() {
 
 ```
 
-不可以直接给某个赋值为nil
+不可以直接给某个赋值为nil 会警告 untyped bil

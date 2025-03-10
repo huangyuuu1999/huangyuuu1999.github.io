@@ -1107,7 +1107,7 @@
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      快排时间复杂度分析
+      使用不同的分区来快排
     </span>
   </a>
   
@@ -1116,7 +1116,7 @@
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
-      快排的稳定性
+      快排时间复杂度分析
     </span>
   </a>
   
@@ -1125,15 +1125,24 @@
         <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
-      三轴快排
+      快排的稳定性
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="三轴快排">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      双轴快排
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="双轴快排">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       荷兰国旗问题
     </span>
@@ -1147,7 +1156,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       快速选择算法
     </span>
@@ -1506,7 +1515,7 @@
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      快排时间复杂度分析
+      使用不同的分区来快排
     </span>
   </a>
   
@@ -1515,7 +1524,7 @@
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
-      快排的稳定性
+      快排时间复杂度分析
     </span>
   </a>
   
@@ -1524,15 +1533,24 @@
         <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
-      三轴快排
+      快排的稳定性
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="三轴快排">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      双轴快排
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="双轴快排">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       荷兰国旗问题
     </span>
@@ -1546,7 +1564,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       快速选择算法
     </span>
@@ -1675,20 +1693,195 @@
 <p>实际上最早的分区方案是 Hoare 本人，也就是快排的发明人的 Hoare 分区，但是 Lomuto 分区算法相对容易理解，在《算法导论》书中也是以 Lomuto 分区算法来讲解的。</p>
 <p>函数功能：
 选一个数字x，进行一系列操作，最终返回一个下标，这个下标就是x最后的位置，在x左边的都小于x，在x右边的都大于x。</p>
+<p>假设我们选择左边第一个数字作为pivot。
+我们使用j表示小于pivot区域的最后一个元素的下标（到最后，j以及左边都是小于pivot的，j的右边都是大于pivot的），然后用一个i指针从p+1位置向前探测。当我们遇到大于pivot的元素时，就什么都不做、如果遇到小于pivot的元素，就将j++，并且把j的新位置的元素和i位置的元素交换。</p>
+<p><div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><span class="k">def</span> <span class="nf">lomuto_oartition</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+</span><span id="__span-2-2">    <span class="n">pivot</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+</span><span id="__span-2-3">    <span class="n">j</span> <span class="o">=</span> <span class="n">p</span>
+</span><span id="__span-2-4">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span><span id="__span-2-5">        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">pivot</span><span class="p">:</span>
+</span><span id="__span-2-6">            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-2-7">            <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span><span id="__span-2-8">    <span class="c1"># 最后要把pivot换到中间，（小于区域的最后一个位置）</span>
+</span><span id="__span-2-9">    <span class="n">arr</span><span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+</span><span id="__span-2-10">    <span class="k">return</span> <span class="n">j</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-go highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><span class="c1">// lomuto scheme，选左边第一个作为pivot; j是探测指针，i维护小于x区域的右边界</span>
+</span><span id="__span-3-2"><span class="kd">func</span><span class="w"> </span><span class="nx">partitionLomuto</span><span class="p">(</span><span class="nx">arr</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-3"><span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">p</span><span class="p">]</span>
+</span><span id="__span-3-4"><span class="w">    </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">p</span>
+</span><span id="__span-3-5"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">r</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-6"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-7"><span class="w">            </span><span class="nx">i</span><span class="o">++</span>
+</span><span id="__span-3-8"><span class="w">            </span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+</span><span id="__span-3-9"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-10"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-11"><span class="w">    </span><span class="c1">// 最后把pivot换到中间，也就是小于x区域的最右侧元素的位置</span>
+</span><span id="__span-3-12"><span class="w">    </span><span class="nx">arr</span><span class="p">[</span><span class="nx">p</span><span class="p">],</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">p</span><span class="p">]</span>
+</span><span id="__span-3-13"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">i</span>
+</span><span id="__span-3-14"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+- pivot选了之后，就不参与后面的交换，直到最后一步，把它放到正确的位置。
+- i遇到小于pivot的元素，就交换，交换行为实际上导致了小于区域的扩增，并且把大于区域也往后挤了。
+- 小于区域的右边界j，最开始初始化为p，因为i是从p+1开始探测的，最开始小于区域一个元素都没有，就指向开始位置“0”的前面一个下标，“-1”。</p>
+<p>只要动态观看一次lomuto分区的过程，就能很快理解到上面的几个要点。</p>
 <h3 id="hoare">Hoare 分区方案<a class="headerlink" href="#hoare" title="Permanent link">&para;</a></h3>
-<p>Hoare方法的核心在于，不是以某个数字为轴。</p>
+<p>Hoare方法的核心在于，数字轴只是一个参考，一个分界标准。</p>
+<p>最初选的轴x的位置，最后并不保证在最中间，所以返回的下标，也和轴x没有任何关系，这个返回的下标仅仅是一个分界点而已。</p>
 <p>函数功能：
 选一个数字x，进行一系列操作，最终返回一个下标，在 <strong>这个下标以及他左侧的</strong> 数字都小于x，右侧的都大于等于x。</p>
-<p>最初选的轴x的位置，并不保证在最中间，所以返回的下标，也和轴x没有任何关系，这个下标仅仅是一个分界点而已。</p>
+<div class="language-go highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><span class="c1">// 更类似于hoare原始写法的，pivot的值的位置可以变。do while写法</span>
+</span><span id="__span-4-2"><span class="c1">// https://blog.csdn.net/qq_33919450/article/details/127095084</span>
+</span><span id="__span-4-3"><span class="c1">// https://blog.csdn.net/2201_75314884/article/details/137834523</span>
+</span><span id="__span-4-4"><span class="c1">// https://en.wikipedia.org/wiki/Quicksort#Hoare_partition_scheme</span>
+</span><span id="__span-4-5"><span class="c1">// 关键在于，最终pivot的位置，不是在中间该在的位置的。</span>
+</span><span id="__span-4-6"><span class="c1">// https://www.bilibili.com/video/BV15A411R7P4/?spm_id_from=333.337.search-card.all.click&amp;vd_source=d3681ed3219ed1f8a753e351f7feb904</span>
+</span><span id="__span-4-7"><span class="kd">func</span><span class="w"> </span><span class="nx">partitionHoare1</span><span class="p">(</span><span class="nx">arr</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-8"><span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">p</span><span class="p">]</span>
+</span><span id="__span-4-9"><span class="w">    </span><span class="nx">lo</span><span class="p">,</span><span class="w"> </span><span class="nx">hi</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">p</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="o">+</span><span class="mi">1</span>
+</span><span id="__span-4-10"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">lo</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">hi</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-11"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nx">lo</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">lo</span><span class="p">]</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">x</span><span class="p">;</span><span class="w"> </span><span class="nx">lo</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-12"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-4-13"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nx">hi</span><span class="o">--</span><span class="p">;</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">hi</span><span class="p">]</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="nx">x</span><span class="p">;</span><span class="w"> </span><span class="nx">hi</span><span class="o">--</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-14"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-4-15"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">lo</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">hi</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-16"><span class="w">            </span><span class="nx">arr</span><span class="p">[</span><span class="nx">lo</span><span class="p">],</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">hi</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">hi</span><span class="p">],</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">lo</span><span class="p">]</span>
+</span><span id="__span-4-17"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-18"><span class="w">            </span><span class="k">break</span>
+</span><span id="__span-4-19"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-4-20"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-21"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">hi</span>
+</span><span id="__span-4-22"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
 <h3 id="_5">挖空法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<h2 id="_6">快排时间复杂度分析<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>最开始选择p下标（也就是最左边的）当做pivot，此时arr[p] 被保存在了pivot变量值，那么此时p位置就有了一个空槽。
+从最右边，开始向左边找，赵一个小于pivot的（也就是希望放在左边的）放入这个位置，放完之后这个右边的位置又形成了一个空槽，再从左边找大的元素... 一直如此操作，直到左右指针相遇。
+<div class="language-go highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><span class="c1">// slot 方法，左边挖空右边找一个填空，左右交替</span>
+</span><span id="__span-5-2"><span class="kd">func</span><span class="w"> </span><span class="nx">partitionSlots</span><span class="p">(</span><span class="nx">arr</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">p</span><span class="p">]</span>
+</span><span id="__span-5-4"><span class="w">    </span><span class="nx">l</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">p</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span>
+</span><span id="__span-5-5"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-6"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-7"><span class="w">            </span><span class="nx">r</span><span class="o">--</span>
+</span><span id="__span-5-8"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-5-9"><span class="w">        </span><span class="nx">arr</span><span class="p">[</span><span class="nx">l</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span>
+</span><span id="__span-5-10"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">l</span><span class="p">]</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-11"><span class="w">            </span><span class="nx">l</span><span class="o">++</span>
+</span><span id="__span-5-12"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-5-13"><span class="w">        </span><span class="nx">arr</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">l</span><span class="p">]</span>
+</span><span id="__span-5-14"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-15"><span class="w">    </span><span class="nx">arr</span><span class="p">[</span><span class="nx">l</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="c1">// l == r</span>
+</span><span id="__span-5-16"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">l</span>
+</span><span id="__span-5-17"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div></p>
+<h2 id="_6">使用不同的分区来快排<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>Lomuto 分区和 Hoare 分区函数本身做的事情不一样，所以在快排里面的用法也不一样。
+<div class="language-go highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><span class="kd">func</span><span class="w"> </span><span class="nx">quickSortHoare</span><span class="p">(</span><span class="nx">arr</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><span class="w">        </span><span class="k">return</span>
+</span><span id="__span-6-4"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-5"><span class="w">    </span><span class="nx">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">partitionHoare1</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+</span><span id="__span-6-6"><span class="w">    </span><span class="nx">quickSortHoare</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="p">)</span>
+</span><span id="__span-6-7"><span class="w">    </span><span class="nx">quickSortHoare</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+</span><span id="__span-6-8"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+任何一种实现了：“最后pivot在中间，左边小于，右边大于，返回pivot下标” 的分区函数，都可以配合下面的快排模板来使用。
+<div class="language-go highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Go</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><span class="c1">// 这里的 partitionFunc 可以是 Lomuto，只要功能是和lomuto一样就行</span>
+</span><span id="__span-7-2"><span class="kd">func</span><span class="w"> </span><span class="nx">quickSort</span><span class="p">(</span><span class="nx">arr</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">partitionFunc</span><span class="w"> </span><span class="kd">func</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">r</span><span class="o">-</span><span class="nx">p</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-4"><span class="w">        </span><span class="k">return</span>
+</span><span id="__span-7-5"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-6"><span class="w">    </span><span class="nx">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">partitionFunc</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+</span><span id="__span-7-7"><span class="w">    </span><span class="nx">quickSort</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span><span class="w"> </span><span class="nx">p</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">partitionFunc</span><span class="p">)</span>
+</span><span id="__span-7-8"><span class="w">    </span><span class="nx">quickSort</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">partitionFunc</span><span class="p">)</span>
+</span><span id="__span-7-9"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div></p>
+<p>可以使用 <a href="https://leetcode.cn/problems/sort-an-array/description/">Leetcode912题 排序数组</a>来测试你的排序函数！</p>
+<h2 id="_7">快排时间复杂度分析<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>平均O(nlogn)，最坏O(n^2)。
 最好呢？
 什么时候最坏？已经有序？还是逆序？</p>
-<h2 id="_7">快排的稳定性<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<h2 id="_8">三轴快排<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<h3 id="_9">荷兰国旗问题<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<h2 id="_10">快速选择算法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h2 id="_8">快排的稳定性<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="_9">双轴快排<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>我们前面的分区算法里面只有一个轴，目前没有遇到什么问题，但是当出现很多重复元素的时候，性能就会下降。所以出现了改进版本，也就是双轴快排。</p>
+<h3 id="_10">荷兰国旗问题<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h2 id="_11">快速选择算法<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>能够在O(n)时间内，选出数组中第k小的数的算法。</p>
+<p>若你已经对快速排序的分区算法很熟悉了，那么这个算法就是送给你的礼物🎁！</p>
 
 
 

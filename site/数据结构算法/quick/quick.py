@@ -19,3 +19,13 @@ new_arr = partition(arr, 0, len(arr) - 1)
 print("after  partition:", arr)
 
 print("returned new arr:", new_arr)
+
+def lomuto_oartition(arr, p, r):
+    pivot = arr[p]
+    j = p
+    for i in range(p+1, r+1):
+        if arr[i] < pivot:
+            j += 1
+            arr[i], arr[j] = arr[j], arr[i]
+    arr[p], arr[j] = arr[j], arr[p]
+    return j
