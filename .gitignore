@@ -10,3 +10,5 @@
 *.txt
 *.jpg
 *.jpeg
+
+*/.venv
